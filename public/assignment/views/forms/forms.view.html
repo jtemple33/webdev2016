@@ -14,19 +14,19 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>JT Admin</title>
+    <title>JT Forms</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -35,7 +35,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.view.html">James Temple's Form Maker</a>
+            <a class="navbar-brand" href="../home/home.view.html">James Temple's Form Maker</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -55,35 +55,29 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li><a href="home.view.html">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="profile.view.html">Profile</a></li>
-                <li class="active"><a href="admin.view.html">Admin</a></li>
-                <li><a href="forms.view.html">Forms</a></li>
+                <li><a href="../home/home.view.html">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="../users/profile.view.html">Profile</a></li>
+                <li><a href="../admin/admin.view.html">Admin</a></li>
+                <li class="active"><a href="forms.view.html">Forms</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1>Admin</h1>
-
-            <h2>Users</h2>
+            <h1>
+                Forms
+            </h1>
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#">Forms</a></li>
+                <li role="presentation"><a href="fields.view.html">Fields</a></li>
+            </ul>
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Role</th>
+                    <th>Form Name</th>
                     <th>Actions</th>
                     <th>&nbsp;</th>
                 </tr>
                 <tr>
-                    <td><input class="form-control" type="text" name="username" placeholder="Username"/></td>
-                    <td><input class="form-control" type="text" name="password" placeholder="Password"/></td>
-                    <td><select class="form-control" type="text" name="role">
-                        <option value="USER">User</option>
-                        <option value="ADMIN">Admin</option>
-                        <option value="STUDENT">Student</option>
-                        <option value="FACULTY">Faculty</option>
-                    </select>
-                    </td>
+                    <td><input class="form-control" type="text" name="username" placeholder="Form Name"/></td>
                     <td>
                         <a href="#" class="btn btn-success">
                             <scan class="glyphicon glyphicon-ok"></scan>
@@ -96,9 +90,9 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td>Alice</td>
-                    <td>******</td>
-                    <td>Student</td>
+                    <td>
+                        <a href="fields.view.html"></a>
+                        Registration Form</td>
                     <td>
                         <a href="#" class="btn btn-warning">
                             <scan class="glyphicon glyphicon-pencil"></scan>
@@ -109,9 +103,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Bob</td>
-                    <td>********</td>
-                    <td>Faculty & Admin</td>
+                    <td>Contact List</td>
                     <td>
                         <a href="#" class="btn btn-warning">
                             <scan class="glyphicon glyphicon-pencil"></scan>
@@ -122,9 +114,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Charlie</td>
-                    <td>*******</td>
-                    <td></td>
+                    <td>To Do List</td>
                     <td>
                         <a href="#" class="btn btn-warning">
                             <scan class="glyphicon glyphicon-pencil"></scan>
