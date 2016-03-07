@@ -52,13 +52,13 @@
         }
 
         function deleteFormById(formId, callback) {
-            var form = findFormId(formId);
+            var form = findFormById(formId);
             forms.splice(form,1);
             callback(forms);
         }
 
         function updateFormById(formId, newForm, callback) {
-            var form = findFormId(formId);
+            var form = findFormById(formId);
             forms.splice(form,1,newForm);
             callback(newForm);
         }

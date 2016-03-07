@@ -13,12 +13,12 @@
         <th>&nbsp;</th>
     </tr>
     <tr>
-        <td><input ng-model="addForm.title" class="form-control" type="text" name="formname" placeholder="Form Name"/></td>
+        <td><input ng-model="editForm.title" class="form-control" type="text" name="formname" placeholder="Form Name"/></td>
         <td>
-            <a ng-click="addForm(form)" class="btn btn-success">
+            <a ng-click="updateForm(editForm)" class="btn btn-success">
                 <scan class="glyphicon glyphicon-ok"></scan>
             </a>
-            <a ng-click="updateForm(form)" class="btn btn-primary">
+            <a ng-click="addForm(editForm)" class="btn btn-primary">
                 <scan class="glyphicon glyphicon-plus"></scan>
             </a>
         </td>
@@ -28,10 +28,10 @@
     <tr ng-repeat="form in userForms">
         <td>{{form.title}}</td>
         <td>
-            <a ng-click="deleteForm(form._id, $index)" class="btn btn-warning">
+            <a ng-click="selectForm(form._id, $index)" class="btn btn-warning">
                 <scan class="glyphicon glyphicon-pencil"></scan>
             </a>
-            <a ng-click="selectForm(form._id, $index)" class="btn btn-danger">
+            <a ng-click="deleteForm(form._id, $index)" class="btn btn-danger">
                 <scan class="glyphicon glyphicon-remove"></scan>
             </a>
         </td>

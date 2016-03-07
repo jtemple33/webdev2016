@@ -25,7 +25,7 @@
             var form = {"title": newForm.title};
             FormService.createFormForUser($rootScope.currentUser._id, form, function(res) {
                 setForms();
-                $scope.addForm = {"title": res.title, "_id": res._id, "userId": res.userId};
+                $scope.editForm = {"title": res.title, "_id": res._id, "userId": res.userId};
             });
 
         }
@@ -43,7 +43,7 @@
 
         function selectForm(formId, formIndex) {
             var selected_form = FormService.findFormById(formId);
-            $scope.addForm = {"title" :selected_form.title, "userId": selected_form.userId, "_id": selected_form._id}
+            $scope.editForm = {"title" :selected_form.title, "userId": selected_form.userId, "_id": selected_form._id}
         }
 
 
