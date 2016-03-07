@@ -3,7 +3,7 @@
 </h1>
 <ul class="nav nav-tabs">
     <li role="presentation" class="active"><a href="#">Forms</a></li>
-    <li role="presentation"><a href="/fields">Fields</a></li>
+    <li role="presentation"><a href="#fields">Fields</a></li>
 </ul>
 <table class="table table-striped">
     <thead>
@@ -13,49 +13,25 @@
         <th>&nbsp;</th>
     </tr>
     <tr>
-        <td><input class="form-control" type="text" name="username" placeholder="Form Name"/></td>
+        <td><input ng-model="form.name" class="form-control" type="text" name="formname" placeholder="Form Name"/></td>
         <td>
-            <a href="#" class="btn btn-success">
+            <a ng-click="addForm(form)" class="btn btn-success">
                 <scan class="glyphicon glyphicon-ok"></scan>
             </a>
-            <a href="#" class="btn btn-primary">
+            <a ng-click="updateForm(form)" class="btn btn-primary">
                 <scan class="glyphicon glyphicon-plus"></scan>
             </a>
         </td>
     </tr>
     </thead>
     <tbody>
-    <tr>
+    <tr ng-repea="form in userForms">
+        <td>{{form.title}}</td>
         <td>
-            <a href="fields.view.html"></a>
-            Registration Form</td>
-        <td>
-            <a href="#" class="btn btn-warning">
+            <a ng-click="deleteForm(form._id, $index)" class="btn btn-warning">
                 <scan class="glyphicon glyphicon-pencil"></scan>
             </a>
-            <a href="#" class="btn btn-danger">
-                <scan class="glyphicon glyphicon-remove"></scan>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>Contact List</td>
-        <td>
-            <a href="#" class="btn btn-warning">
-                <scan class="glyphicon glyphicon-pencil"></scan>
-            </a>
-            <a href="#" class="btn btn-danger">
-                <scan class="glyphicon glyphicon-remove"></scan>
-            </a>
-        </td>
-    </tr>
-    <tr>
-        <td>To Do List</td>
-        <td>
-            <a href="#" class="btn btn-warning">
-                <scan class="glyphicon glyphicon-pencil"></scan>
-            </a>
-            <a href="#" class="btn btn-danger">
+            <a ng-click="selectForm(form._id, $index)" class="btn btn-danger">
                 <scan class="glyphicon glyphicon-remove"></scan>
             </a>
         </td>
