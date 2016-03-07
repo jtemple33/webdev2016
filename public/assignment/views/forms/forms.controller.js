@@ -38,12 +38,12 @@
 
 
         function deleteForm(formId, formIndex) {
-            FormService.deleteFormById(formId, updateUserForms);
+            FormService.deleteFormById(formId, formIndex, updateUserForms);
         }
 
         function selectForm(formId, formIndex) {
-            var selected_form = FormService.findFormById(formId);
-            $scope.editForm = {"title" :selected_form.title, "userId": selected_form.userId, "_id": selected_form._id}
+            var selectedForm = FormService.findFormById(formId);
+            $scope.editForm = {"title" :selectedForm.title, "userId": selectedForm.userId, "_id": selectedForm._id}
         }
 
 

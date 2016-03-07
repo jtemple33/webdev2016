@@ -51,9 +51,8 @@
             callback(userForms);
         }
 
-        function deleteFormById(formId, callback) {
-            var form = findFormById(formId);
-            forms.splice(form,1);
+        function deleteFormById(formId, formIndex, callback) {
+            forms.splice(formIndex,1);
             callback(forms);
         }
 
@@ -64,4 +63,5 @@
         }
 
         }
-    })();
+
+})();
