@@ -1,6 +1,6 @@
 <ul class="nav nav-sidebar">
-    <li class="active"><a href="#/home">Home <span class="sr-only">(current)</span></a></li>
-    <li><a href="#/profile">Profile</a></li>
-    <li><a href="#/admin">Admin</a></li>
-    <li><a href="#/forms">Forms</a></li>
+    <li ng-class="{'active': $location.path() == '/' || $location.path() == '/home'}"><a href="#/home">Home</a></li>
+    <li ng-class="{'active': $location.path() == '/profile'}" ng-show="currentUser"><a href="#/profile">Profile</a></li>
+    <li ng-class="{'active': $location.path() == '/admin'}" ng-show="currentUser && currentUser.roles.indexOf('admin') >= 0"><a href="#/admin">Admin</a></li>
+    <li ng-class="{'active': $location.path() == '/forms'}"ng-show="currentUser"><a href="#/forms">Forms</a></li>
 </ul>

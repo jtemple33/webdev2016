@@ -14,19 +14,11 @@
             })
             .when("/forms", {
                 templateUrl: "views/forms/forms.view.html",
-                controller: "FormsController"
+                controller: "FormController"
             })
             .when("/fields", {
                 templateUrl: "views/forms/fields.view.html",
                 controller: "FieldsController"
-            })
-            .when("/header", {
-                templateUrl: "views/header/header.view.html",
-                controller: "HeaderController"
-            })
-            .when("/sidebar", {
-                templateUrl: "views/sidebar/sidebar.view.html",
-                controller: "SidebarController"
             })
             .when("/login", {
                 templateUrl: "views/users/login.view.html",

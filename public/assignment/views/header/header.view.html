@@ -9,10 +9,12 @@
 </div>
 <div id="navbar" class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right">
-        <li><a href=#register>Register</a></li>
-        <li><a href=#login>Login</a></li>
-        <li><a href="#">Username</a></li>
-        <li><a href="#">Logout</a></li>
+        <li ng-class="{'active': $location.path() == '/register'}" ng-show="!currentUser"><a href="#/register">Register</a></li>
+        <li ng-class="{'active': $location.path() == '/login'}" ng-show="!currentUser"><a href="#login">Login</a></li>
+        <li ng-class="{'active': $location.path() == '/profile'}" ng-show="currentUser"><a href="#profile">{{currentUser.username}}</a></li>
+        <li ng-class="{'active': $location.path() == '/admin'}" ng-show="currentUser && currentUser.roles.indexOf('admin') >= 0"><a href="#/admin">Admin</a></li>
+        <li ng-show="currentUser"><a ng-click="logout()" href="#/home">Logout</a></li>
+
     </ul>
 
     <!-- commenting out the search bar-->

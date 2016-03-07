@@ -38,7 +38,9 @@
     <script src="views/main/main.controller.js"></script>
     <script src="services/user.service.client.js"></script>
     <script src="views/users/login.controller.js"></script>
-
+    <script src="views/header/header.controller.js"></script>
+    <script src="views/forms/forms.controller.js"></script>
+    <script src="services/forms.service.client.js"></script>
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet">
 
@@ -47,9 +49,8 @@
 <body>
 
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container" ng-controller="MainController">
-    </div>
+<nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="HeaderController">
+    <div class="container" ng-controller="MainController"></div>
 
     <div class="container-fluid">
 
