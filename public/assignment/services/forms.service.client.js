@@ -13,6 +13,7 @@
         var api = {
             createFormForUser: createFormForUser,
             findFormById: findFormById,
+            findFormIndexById: findFormIndexById,
             findAllFormsForUser: findAllFormsForUser,
             deleteFormById: deleteFormById,
             updateFormById: updateFormById
@@ -40,6 +41,20 @@
             return res;
         }
 
+
+        function findFormIndexById(id) {
+            // A helper to find the index of the form with the given id
+            var index= -1;
+            for (var i = 0; i < forms.length; i++) {
+                var form = forms[i];
+                if (form._id === id) {
+                    index = i;
+                    break;
+                }
+            }
+            return index;
+        }
+
         function findAllFormsForUser(userId, callback) {
             var userForms = [];
             for (var i = 0; i < forms.length; i++) {
@@ -51,17 +66,18 @@
             callback(userForms);
         }
 
-        function deleteFormById(formId, formIndex, callback) {
-            forms.splice(formIndex,1);
+        function deleteFormById(formId,callback) {
+            var form = findFormIndexById(formId);
+            forms.splice(form,1);
             callback(forms);
         }
 
         function updateFormById(formId, newForm, callback) {
-            var form = findFormById(formId);
+            var form = findFormIndexById(formId);
             forms.splice(form,1,newForm);
             callback(newForm);
         }
 
-        }
+    }
 
 })();

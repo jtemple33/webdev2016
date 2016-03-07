@@ -37,8 +37,8 @@
         }
 
 
-        function deleteForm(formId, formIndex) {
-            FormService.deleteFormById(formId, formIndex, updateUserForms);
+        function deleteForm(formId, index) {
+            FormService.deleteFormById(formId, updateUserForms);
         }
 
         function selectForm(formId, formIndex) {
