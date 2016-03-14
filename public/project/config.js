@@ -1,24 +1,18 @@
 (function(){
     angular
-        .module("FormBuilderApp")
+        .module("238Hem")
         .config(Configuration);
 
     function Configuration($routeProvider) {
         $routeProvider
-            .when("/store", {
-                templateUrl: "views/store/store.view.html"
+            .when("/our_story", {
+                templateUrl: "views/store/our_story.view.html"
             })
-            .when("/admin", {
-                templateUrl: "views/admin/admin.view.html",
-                controller: "AdminController"
+            .when("/dress_shirts", {
+                templateUrl: "views/store/dress_shirts.view.html"
             })
-            .when("/forms", {
-                templateUrl: "views/forms/forms.view.html",
-                controller: "FormController"
-            })
-            .when("/fields", {
-                templateUrl: "views/forms/fields.view.html",
-                controller: "FieldsController"
+            .when("/sale", {
+                templateUrl: "views/store/sale.view.html"
             })
             .when("/login", {
                 templateUrl: "views/users/login.view.html",
@@ -33,7 +27,7 @@
                 controller: "RegisterController"
             })
             .otherwise({
-                redirectTo: "/store"
+                redirectTo: "/our_story"
             });
     }
 })();

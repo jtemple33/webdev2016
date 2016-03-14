@@ -1,0 +1,41 @@
+<h1>
+    Profile
+</h1>
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="inputUsername1" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-10">
+            <input ng-model="currentUser.username" type="text" class="form-control" id="inputUsername1" placeholder="{{currentUser.username}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputPassword1" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-10">
+            <input ng-model="currentUser.password" type="password" class="form-control" id="inputPassword1" placeholder="{{currentUser.password}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputFirst1" class="col-sm-2 control-label">First name</label>
+        <div class="col-sm-10">
+            <input ng-model="currentUser.firstName" type="text" class="form-control" id="inputFirst1" placeholder="{{currentUser.firstName}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputLast1" class="col-sm-2 control-label">Last name</label>
+        <div class="col-sm-10">
+            <input ng-model="currentUser.lastName" type="text" class="form-control" id="inputLast1" placeholder="{{currentUser.lastName}}">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputEmail1" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input ng-model="currentUser.email" type="email" class="form-control" id="inputEmail1" placeholder="{{currentUser.email}}">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <a ng-click="update(currentUser)" class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="btn btn-primary btn-lg">Update</button>
+        </a>
+    </div>
+</form>
