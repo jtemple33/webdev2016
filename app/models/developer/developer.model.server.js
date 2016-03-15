@@ -10,6 +10,8 @@ module.exports = function (db) {
     return api;
 
     function createDeveloper (developer) {
-
+        Developer.save(developer, function (err, doc) {
+            console.log (doc);
+        });
     }
 };
