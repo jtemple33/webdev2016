@@ -3,6 +3,15 @@ module.exports = function (app, developerModel) {
 
     function createDeveloper (req, res) {
         var developer = req.body;
-        developerModel.createDeveloper(developer);
+        developerModel
+            .createDeveloper (developer)
+            .then (
+                function (developer) {
+                    res.json (developer);
+                },
+                function (err) {
+                    res.status (400).send ( err);
+                }
+            );
     }
 }
