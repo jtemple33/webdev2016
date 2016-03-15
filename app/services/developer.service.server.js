@@ -3,6 +3,6 @@ module.exports = function (app, developerModel) {
 
     function createDeveloper (req, res) {
         var developer = req.body;
-        developerModel.create(developer);
+        developerModel.createDeveloper(developer);
     }
 }
