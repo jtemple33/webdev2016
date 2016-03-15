@@ -1,0 +1,24 @@
+{
+  "name": "web-app-maker",
+  "version": "1.0.0",
+  "description": "Online application to build online applications",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jannunzi/WebAppMaker.git"
+  },
+  "author": "Jose G. Annunziato",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jannunzi/WebAppMaker/issues"
+  },
+  "homepage": "https://github.com/jannunzi/WebAppMaker#readme"
+}
