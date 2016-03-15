@@ -26,7 +26,14 @@
         }
 
         function addReview(review) {
-            reviews.splice(0,0,review);
+            var date = new Date();
+            var newReview =
+                {"_id": reviews[0]+1,
+                "date": (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
+                "name": review.name,
+                "Comments": review.Comments,
+                "rating": review.rating};
+            reviews.splice(0,0,newReview);
         }
     }
 

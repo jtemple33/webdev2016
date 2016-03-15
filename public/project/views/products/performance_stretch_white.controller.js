@@ -7,31 +7,24 @@
 
     $scope.setForms = setForms;
     $scope.addReview = addReview;
-    $scope.getForms = getForms;
-    $scope.getRatings = getRatings;
+    $scope.getReviews = getReviews;
     $scope.addForm = addForm;
     $scope.deleteForm = deleteForm;
     $scope.updateForm = updateForm;
     $scope.selectForm = selectForm;
 
     (function init() {
-        getForms();
+        getReviews();
     })();
 
-    function getForms() {
+    function getReviews() {
         $scope.reviews = ReviewService.allReviews();
     }
 
-        function getRatings(rating) {
-            var star = '<scan class="glyphicon glyphicon-star"></scan>';
-            if (rating > 0) {
-            return star;
-            }
-        }
 
         function addReview(review) {
             ReviewService.addReview(review);
-            getForms();
+            getReviews();
         }
 
     function setForms() {
