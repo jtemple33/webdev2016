@@ -15,7 +15,8 @@
                 templateUrl: "views/store/sale.view.html"
             })
             .when("/performance_stretch_white", {
-                templateUrl: "views/products/performance_stretch_white.view.html"
+                templateUrl: "views/products/performance_stretch_white.view.html",
+                controller: "StretchWhiteController"
             })
             .when("/performance_stretch_blue", {
                 templateUrl: "views/products/performance_stretch_blue.view.html"
