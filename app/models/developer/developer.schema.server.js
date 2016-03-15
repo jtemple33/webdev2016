@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-mondule.exports = function () {
+module.exports = function () {
     var DeveloperSchema = mongoose.Schema({
         username: String,
         password: String,
