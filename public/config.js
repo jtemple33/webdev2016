@@ -10,6 +10,9 @@
                 controller: "DeveloperListController",
                 controllerAs: "model"
             })
+            .when ("/developer/new", {
+                templateUrl: "views/developer/developer-new.view.html"
+            })
             .otherwise ({
                 redirectTo: "/developer"
             });
