@@ -5,8 +5,8 @@
 
     function Configuration($routeProvider) {
         $routeProvider
-            .when("/store", {
-                templateUrl: "views/store/store.view.html"
+            .when("/home", {
+                templateUrl: "views/home/home.view.html"
             })
             .when("/admin", {
                 templateUrl: "views/admin/admin.view.html",
@@ -33,7 +33,7 @@
                 controller: "RegisterController"
             })
             .otherwise({
-                redirectTo: "/store"
+                redirectTo: "/home"
             });
     }
 })();

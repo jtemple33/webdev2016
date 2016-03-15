@@ -14,6 +14,15 @@
             .when("/sale", {
                 templateUrl: "views/store/sale.view.html"
             })
+            .when("/performance_stretch_white", {
+                templateUrl: "views/products/performance_stretch_white.view.html"
+            })
+            .when("/performance_stretch_blue", {
+                templateUrl: "views/products/performance_stretch_blue.view.html"
+            })
+            .when("/cart", {
+                templateUrl: "views/store/cart.view.html"
+            })
             .when("/login", {
                 templateUrl: "views/users/login.view.html",
                 controller: "LoginController"
