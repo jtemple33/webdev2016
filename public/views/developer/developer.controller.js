@@ -8,12 +8,13 @@
         var vm = this;
     }
 
-    function newDeveloperController () {
+    function newDeveloperController (DeveloperService) {
         var vm = this;
         vm.createDeveloper = createDeveloper;
 
         function createDeveloper (developer) {
-            console.log (developer);
+            DeveloperService
+                .createDeveloper (developer);
         }
     }
 })();

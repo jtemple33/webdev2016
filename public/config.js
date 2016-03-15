@@ -11,7 +11,9 @@
                 controllerAs: "model"
             })
             .when ("/developer/new", {
-                templateUrl: "views/developer/developer-new.view.html"
+                templateUrl: "views/developer/developer-new.view.html",
+                controller: "NewDeveloperController",
+                controllerAs: "model"
             })
             .otherwise ({
                 redirectTo: "/developer"
