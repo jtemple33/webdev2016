@@ -3,7 +3,8 @@ module.exports = function (app, developerModel) {
     app.get ("/api/developer", findAllDevelopers);
 
     function findAllDevelopers (req, res) {
-        console.log ("findAllDevelopers");
+        developerModel
+            .findAllDevelopers ();
     }
 
     function createDeveloper (req, res) {

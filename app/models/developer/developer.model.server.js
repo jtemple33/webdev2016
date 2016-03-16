@@ -6,9 +6,14 @@ module.exports = function (db) {
     var Developer = mongoose.model("Developer", DeveloperSchema);
 
     var api = {
-        createDeveloper: createDeveloper
+        createDeveloper: createDeveloper,
+        findAllDevelopers: findAllDevelopers
     };
     return api;
+
+    function findAllDevelopers () {
+        console.log ("findAllDevelopers");
+    }
 
     function createDeveloper (developer) {
         var deferred = q.defer();
