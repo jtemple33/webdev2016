@@ -15,7 +15,9 @@ module.exports = function (db) {
         var deferred = q.defer ();
         Developer.find (
             function (err, developers) {
-                console.log (developers);
+                if (!err) {
+                    deferred.resolve (developers);
+                }
             }
         );
         return deferred.promise;

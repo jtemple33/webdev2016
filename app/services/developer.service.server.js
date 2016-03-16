@@ -5,7 +5,11 @@ module.exports = function (app, developerModel) {
     function findAllDevelopers (req, res) {
         developerModel
             .findAllDevelopers ()
-            .then ()
+            .then (
+                function (developers) {
+                    res.json (developers);
+                }
+            );
     }
 
     function createDeveloper (req, res) {
