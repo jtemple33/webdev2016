@@ -6,9 +6,14 @@
     function developerService ($http) {
         var api = {
             createDeveloper: createDeveloper,
-            findAllDevelopers: findAllDevelopers
+            findAllDevelopers: findAllDevelopers,
+            findUserByUsername: findUserByUsername
         };
         return api;
+
+        function findUserByUsername (username) {
+            console.log(username);
+        }
 
         function createDeveloper (developer) {
             return $http.post ("/api/developer", developer);

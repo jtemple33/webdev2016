@@ -44,8 +44,9 @@
         }
     }
 
-    function editDeveloperController ($routeParams) {
+    function editDeveloperController ($routeParams, DeveloperService) {
         var username = $routeParams.username;
-        console.log(username);
+        DeveloperService
+            .findUserByUsername(username);
     }
 })();
