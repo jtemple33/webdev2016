@@ -2,6 +2,11 @@ module.exports = function (app, developerModel) {
     app.post ("/api/developer", createDeveloper);
     app.get ("/api/developer", findAllDevelopers);
     app.get ("/api/developer/:username", findDeveloperByUsername);
+    app.put ("/api/developer/:username", updateDeveloper);
+
+    function updateDeveloper (req, res) {
+
+    }
 
     function findDeveloperByUsername (req, res) {
         developerModel
