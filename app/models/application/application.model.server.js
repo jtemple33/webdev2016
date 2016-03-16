@@ -9,6 +9,9 @@ module.exports = function () {
     return api;
 
     function createApplication (application) {
+        Application.create (application,
+            function (err, application) {
 
+        });
     }
 };
