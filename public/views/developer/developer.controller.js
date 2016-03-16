@@ -12,10 +12,10 @@
                 .findAllDevelopers ()
                 .then(
                     function (developers) {
-                        console.log(developers.data);
+                        vm.developers = developers.data;
                     },
                     function (err) {
-                        console.log(err);
+                        vm.error = err;
                     }
                 )
         }
