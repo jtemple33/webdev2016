@@ -15,6 +15,7 @@ module.exports = function (db) {
     return api;
 
     function deleteDeveloper (username) {
+        var deferred = q.defer();
         Developer
             .remove (
                 {username: username},
@@ -22,6 +23,7 @@ module.exports = function (db) {
 
                 }
             );
+        return deferred.promise;
     }
 
     function updateDeveloper (username, developer) {
