@@ -12,7 +12,11 @@ module.exports = function (db) {
     return api;
 
     function findAllDevelopers () {
-        console.log ("findAllDevelopers");
+        Developer.find (
+            function (err, developers) {
+                console.log (developers);
+            }
+        );
     }
 
     function createDeveloper (developer) {
