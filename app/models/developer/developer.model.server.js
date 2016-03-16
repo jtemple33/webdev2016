@@ -14,6 +14,7 @@ module.exports = function (db) {
     return api;
 
     function updateDeveloper (username, developer) {
+        var deferred = q.defer();
         Developer
             .update (
                 {username: username},
@@ -22,6 +23,7 @@ module.exports = function (db) {
 
                 }
             );
+        return deferred.promise;
     }
 
     function findDeveloperByUsername (username) {
