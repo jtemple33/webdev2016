@@ -22,6 +22,8 @@ module.exports = function (db) {
                 function (err, stats) {
                     if (!err) {
                         deferred.resolve(stats);
+                    } else {
+                        deferred.reject(err);
                     }
                 }
             );

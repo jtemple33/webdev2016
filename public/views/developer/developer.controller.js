@@ -67,9 +67,14 @@
         function updateDeveloper (developer) {
             DeveloperService
                 .updateDeveloper(developer)
-                .then (function (response) {
-                    console.log(response);
-                });
+                .then (
+                    function (response) {
+                        console.log(response);
+                    },
+                    function (err) {
+                        console.log(err);
+                    }
+                );
         }
     }
 })();
