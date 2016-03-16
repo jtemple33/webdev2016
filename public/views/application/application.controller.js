@@ -9,7 +9,8 @@
         vm.username = $routeParams.username;
     }
 
-    function newApplicationController ($routeParams, ApplicationService) {
+    function newApplicationController (
+        $routeParams, ApplicationService, $location) {
         var vm = this;
         vm.username = $routeParams.username;
         vm.createApplication = createApplication;
@@ -20,7 +21,7 @@
                 .createApplication (application)
                 .then (
                     function (response) {
-                        console.log(response.data);
+                        $location.url ("/developer/"+vm.username+"/application");
                     },
                     function (err) {
                         vm.error = err;
