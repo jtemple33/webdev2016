@@ -5,6 +5,8 @@
 
 <h2>Edit Developer</h2>
 
-{{model.error}}
+<div ng-if="model.error" class="alert alert-success" role="alert">
+   {{model.error}}
+</div>
 
 {{model.developer}}
