@@ -7,4 +7,10 @@
     {{model.error}}
 </div>
 
-{{model.developers}}
+<table class="table table-striped">
+    <tr ng-repeat="developer in model.developers">
+        <td>
+            {{developer.username}}
+        </td>
+    </tr>
+</table>
