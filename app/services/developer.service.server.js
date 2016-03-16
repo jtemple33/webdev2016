@@ -5,7 +5,8 @@ module.exports = function (app, developerModel) {
     app.put ("/api/developer/:username", updateDeveloper);
 
     function updateDeveloper (req, res) {
-
+        var username = req.params.username;
+        var developer = req.body;
     }
 
     function findDeveloperByUsername (req, res) {
