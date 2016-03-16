@@ -10,7 +10,9 @@
 <table class="table table-striped">
     <tr ng-repeat="developer in model.developers">
         <td>
-            {{developer.username}}
+            <a href="#/developer/{{developer.username}}/application">
+                {{developer.username}}
+            </a>
             <a href="#/developer/edit/{{developer.username}}" class="pull-right">
                 <span class="glyphicon glyphicon-info-sign"></span>
             </a>

@@ -20,6 +20,9 @@
                 controller: "EditDeveloperController",
                 controllerAs: "model"
             })
+            .when ("/developer/:username/application", {
+                templateUrl: "views/application/application-list.view.html"
+            })
             .otherwise ({
                 redirectTo: "/developer"
             });
