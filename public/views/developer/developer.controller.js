@@ -2,7 +2,8 @@
     angular
         .module ("WebAppMakerApp")
         .controller ("DeveloperListController", developerListController)
-        .controller ("NewDeveloperController", newDeveloperController);
+        .controller ("NewDeveloperController", newDeveloperController)
+        .controller ("EditDeveloperController", editDeveloperController);
 
     function developerListController (DeveloperService) {
         var vm = this;
@@ -41,5 +42,9 @@
                     }
                 )
         }
+    }
+
+    function editDeveloperController () {
+        console.log("Entering editDeveloperController");
     }
 })();
