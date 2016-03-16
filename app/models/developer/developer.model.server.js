@@ -18,7 +18,9 @@ module.exports = function (db) {
             .findOne (
                 {username: username},
                 function (err, developer) {
-                    console.log (developer);
+                    if (!err) {
+                        deferred.resolve(developer);
+                    }
                 }
             );
         return deferred.promise;

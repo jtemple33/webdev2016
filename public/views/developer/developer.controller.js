@@ -49,7 +49,12 @@
 
         function init () {
             DeveloperService
-                .findDeveloperByUsername(username);
+                .findDeveloperByUsername(username)
+                .then (
+                    function (developer) {
+                        console.log (developer.data);
+                    }
+                );
         }
         init();
     }

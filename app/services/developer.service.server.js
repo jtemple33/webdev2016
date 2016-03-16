@@ -6,7 +6,11 @@ module.exports = function (app, developerModel) {
     function findDeveloperByUsername (req, res) {
         developerModel
             .findDeveloperByUsername (req.params.username)
-            .then ()
+            .then (
+                function (developer) {
+                    res.json (developer);
+                }
+            );
     }
 
     function findAllDevelopers (req, res) {
