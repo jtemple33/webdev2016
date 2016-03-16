@@ -67,6 +67,9 @@
         function updateDeveloper (developer) {
             DeveloperService
                 .updateDeveloper(developer)
+                .then (function (response) {
+                    console.log(response);
+                });
         }
     }
 })();

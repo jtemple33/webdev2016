@@ -13,7 +13,7 @@
         return api;
 
         function updateDeveloper (developer) {
-            $http.put ("/api/developer/"+developer.username, developer);
+            return $http.put ("/api/developer/"+developer.username, developer);
         }
 
         function findDeveloperByUsername (username) {

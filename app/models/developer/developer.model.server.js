@@ -20,7 +20,9 @@ module.exports = function (db) {
                 {username: username},
                 {$set: developer},
                 function (err, stats) {
-
+                    if (!err) {
+                        deferred.resolve(stats);
+                    }
                 }
             );
         return deferred.promise;
