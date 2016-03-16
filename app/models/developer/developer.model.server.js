@@ -14,7 +14,14 @@ module.exports = function (db) {
     return api;
 
     function updateDeveloper (username, developer) {
+        Developer
+            .update (
+                {username: username},
+                {$set: developer},
+                function (err, stats) {
 
+                }
+            );
     }
 
     function findDeveloperByUsername (username) {
