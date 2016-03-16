@@ -44,7 +44,8 @@
         }
     }
 
-    function editDeveloperController ($routeParams, DeveloperService) {
+    function editDeveloperController (
+        $routeParams, DeveloperService, $location) {
         var username = $routeParams.username;
 
         var vm = this;
@@ -69,10 +70,10 @@
                 .updateDeveloper(developer)
                 .then (
                     function (response) {
-                        console.log(response);
+                        $location.url("/developer");
                     },
                     function (err) {
-                        console.log(err);
+                        vm.error = err;
                     }
                 );
         }
