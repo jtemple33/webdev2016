@@ -9,13 +9,15 @@
         vm.username = $routeParams.username;
     }
 
-    function newApplicationController ($routeParams) {
+    function newApplicationController ($routeParams, ApplicationService) {
         var vm = this;
         vm.username = $routeParams.username;
         vm.createApplication = createApplication;
 
         function createApplication (application) {
-
+            application.developerUsername = vm.username;
+            ApplicationService
+                .createApplication (application)
         }
     }
 })();
