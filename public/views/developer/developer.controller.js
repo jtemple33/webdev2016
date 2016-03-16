@@ -53,6 +53,9 @@
                 .then (
                     function (developer) {
                         console.log (developer.data);
+                    },
+                    function (error) {
+                        console.log (error);
                     }
                 );
         }

@@ -9,6 +9,9 @@ module.exports = function (app, developerModel) {
             .then (
                 function (developer) {
                     res.json (developer);
+                },
+                function (err) {
+                    res.status(400).send(err);
                 }
             );
     }
