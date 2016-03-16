@@ -7,9 +7,14 @@ module.exports = function (db) {
 
     var api = {
         createDeveloper: createDeveloper,
-        findAllDevelopers: findAllDevelopers
+        findAllDevelopers: findAllDevelopers,
+        findDeveloperByUsername: findDeveloperByUsername
     };
     return api;
+
+    function findDeveloperByUsername (username) {
+        console.log (username);
+    }
 
     function findAllDevelopers () {
         var deferred = q.defer ();
