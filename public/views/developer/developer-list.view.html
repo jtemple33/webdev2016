@@ -3,6 +3,8 @@
 </a>
 <h2>Developers</h2>
 
-{{model.error}}
+<div ng-if="model.error" class="alert alert-success" role="alert">
+    {{model.error}}
+</div>
 
 {{model.developers}}
