@@ -12,7 +12,7 @@
         return api;
 
         function findDeveloperByUsername (username) {
-            console.log(username);
+            $http.get ("/api/developer/" + username);
         }
 
         function createDeveloper (developer) {
