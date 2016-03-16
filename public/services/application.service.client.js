@@ -10,7 +10,7 @@
         return api;
 
         function  createApplication (application) {
-            $http.post ("/api/developer/"+application.developerUsername+"/application", application);
+            return $http.post ("/api/developer/"+application.developerUsername+"/application", application);
         }
     }
 })();

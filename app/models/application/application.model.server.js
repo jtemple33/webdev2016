@@ -13,7 +13,11 @@ module.exports = function () {
         var deferred = q.defer();
         Application.create (application,
             function (err, application) {
-
+                if (!err) {
+                    deferred.resolve(application);
+                } else {
+                    deferred.reject(err);
+                }
         });
         return deferred.promise;
     }

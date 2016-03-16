@@ -6,6 +6,13 @@ module.exports = function (app, applicationModel) {
         var application = req.body;
         applicationModel
             .createApplication (application)
-            .then ();
+            .then (
+                function (application) {
+                    res.json (application);
+                },
+                function (err) {
+                    res.status(400).send(err);
+                }
+            );
     }
 }
