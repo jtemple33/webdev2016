@@ -46,7 +46,11 @@
 
     function editDeveloperController ($routeParams, DeveloperService) {
         var username = $routeParams.username;
-        DeveloperService
-            .findUserByUsername(username);
+
+        function init () {
+            DeveloperService
+                .findDeveloperByUsername(username);
+        }
+        init();
     }
 })();

@@ -7,11 +7,11 @@
         var api = {
             createDeveloper: createDeveloper,
             findAllDevelopers: findAllDevelopers,
-            findUserByUsername: findUserByUsername
+            findDeveloperByUsername: findDeveloperByUsername
         };
         return api;
 
-        function findUserByUsername (username) {
+        function findDeveloperByUsername (username) {
             console.log(username);
         }
 
