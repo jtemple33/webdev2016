@@ -67,7 +67,8 @@
         init();
 
         function deleteDeveloper (developer) {
-
+            DeveloperService
+                .deleteDeveloper(developer)
         }
 
         function updateDeveloper (developer) {
