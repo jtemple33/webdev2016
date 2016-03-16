@@ -7,9 +7,14 @@
         var api = {
             createDeveloper: createDeveloper,
             findAllDevelopers: findAllDevelopers,
-            findDeveloperByUsername: findDeveloperByUsername
+            findDeveloperByUsername: findDeveloperByUsername,
+            updateDeveloper: updateDeveloper
         };
         return api;
+
+        function updateDeveloper (developer) {
+
+        }
 
         function findDeveloperByUsername (username) {
             return $http.get ("/api/developer/" + username);

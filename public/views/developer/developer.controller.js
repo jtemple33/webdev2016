@@ -65,7 +65,8 @@
         init();
 
         function updateDeveloper (developer) {
-            console.log(developer);
+            DeveloperService
+                .updateDeveloper(developer)
         }
     }
 })();
