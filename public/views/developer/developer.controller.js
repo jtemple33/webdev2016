@@ -4,8 +4,14 @@
         .controller ("DeveloperListController", developerListController)
         .controller ("NewDeveloperController", newDeveloperController);
 
-    function developerListController () {
+    function developerListController (DeveloperService) {
         var vm = this;
+
+        function init () {
+            DeveloperService
+                .findAllDevelopers ();
+        }
+        init ();
     }
 
     function newDeveloperController (
