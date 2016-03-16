@@ -11,6 +11,9 @@
     <tr ng-repeat="developer in model.developers">
         <td>
             {{developer.username}}
+            <a href="#/developer/edit/{{developer.username}}" class="pull-right">
+                <span class="glyphicon glyphicon-info-sign"></span>
+            </a>
         </td>
     </tr>
 </table>
