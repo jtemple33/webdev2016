@@ -44,7 +44,8 @@
         }
     }
 
-    function editDeveloperController () {
-        console.log("Entering editDeveloperController");
+    function editDeveloperController ($routeParams) {
+        var username = $routeParams.username;
+        console.log(username);
     }
 })();
