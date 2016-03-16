@@ -13,7 +13,13 @@ module.exports = function (db) {
     return api;
 
     function findDeveloperByUsername (username) {
-        console.log (username);
+        Developer
+            .findOne (
+                {username: username},
+                function (err, developer) {
+                    console.log (developer);
+                }
+            );
     }
 
     function findAllDevelopers () {
