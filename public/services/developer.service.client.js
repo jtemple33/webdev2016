@@ -15,7 +15,7 @@
         }
 
         function findAllDevelopers () {
-            console.log ("findAllDevelopers");
+            $http.get ("/api/developer");
         }
     }
 })();
