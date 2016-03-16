@@ -47,15 +47,17 @@
     function editDeveloperController ($routeParams, DeveloperService) {
         var username = $routeParams.username;
 
+        var vm = this;
+
         function init () {
             DeveloperService
                 .findDeveloperByUsername(username)
                 .then (
-                    function (developer) {
-                        console.log (developer.data);
+                    function (response) {
+                        vm.developer = response.data;
                     },
                     function (error) {
-                        console.log (error);
+                        vm.error = error;
                     }
                 );
         }
