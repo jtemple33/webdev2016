@@ -14,7 +14,7 @@
         return api;
 
         function  deleteDeveloper (developer) {
-            $http.delete ("/api/developer/"+developer.username);
+            return $http.delete ("/api/developer/"+developer.username);
         }
 
         function updateDeveloper (developer) {

@@ -20,7 +20,9 @@ module.exports = function (db) {
             .remove (
                 {username: username},
                 function (err, stats) {
-
+                    if (!err) {
+                        deferred.resolve(stats);
+                    }
                 }
             );
         return deferred.promise;

@@ -69,6 +69,11 @@
         function deleteDeveloper (developer) {
             DeveloperService
                 .deleteDeveloper(developer)
+                .then (
+                    function (response) {
+
+                    }
+                );
         }
 
         function updateDeveloper (developer) {

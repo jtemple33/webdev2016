@@ -9,7 +9,11 @@ module.exports = function (app, developerModel) {
         var username = req.params.username;
         developerModel
             .deleteDeveloper (username)
-            .then ();
+            .then (
+                function (stats) {
+                    res.send(200);
+                }
+            );
     }
 
     function updateDeveloper (req, res) {
