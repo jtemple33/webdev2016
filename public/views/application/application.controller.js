@@ -12,5 +12,10 @@
     function newApplicationController ($routeParams) {
         var vm = this;
         vm.username = $routeParams.username;
+        vm.createApplication = createApplication;
+
+        function createApplication (application) {
+
+        }
     }
 })();
