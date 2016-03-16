@@ -12,11 +12,13 @@ module.exports = function (db) {
     return api;
 
     function findAllDevelopers () {
+        var deferred = q.defer ();
         Developer.find (
             function (err, developers) {
                 console.log (developers);
             }
         );
+        return deferred.promise;
     }
 
     function createDeveloper (developer) {
