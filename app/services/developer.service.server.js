@@ -3,6 +3,11 @@ module.exports = function (app, developerModel) {
     app.get ("/api/developer", findAllDevelopers);
     app.get ("/api/developer/:username", findDeveloperByUsername);
     app.put ("/api/developer/:username", updateDeveloper);
+    app.delete ("/api/developer/:username", deleteDeveloper);
+
+    function deleteDeveloper (req, res) {
+
+    }
 
     function updateDeveloper (req, res) {
         var username = req.params.username;
