@@ -71,7 +71,7 @@
                 .deleteDeveloper(developer)
                 .then (
                     function (response) {
-
+                        $location.url("/developer");
                     },
                     function (err) {
                         vm.error = err;
