@@ -50,6 +50,7 @@
 
         var vm = this;
         vm.updateDeveloper = updateDeveloper;
+        vm.deleteDeveloper = deleteDeveloper;
 
         function init () {
             DeveloperService
@@ -64,6 +65,10 @@
                 );
         }
         init();
+
+        function deleteDeveloper (developer) {
+
+        }
 
         function updateDeveloper (developer) {
             DeveloperService
