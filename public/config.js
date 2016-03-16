@@ -25,6 +25,9 @@
                 controller: "ApplicationListController",
                 controllerAs: "model"
             })
+            .when ("/developer/:username/application/new", {
+                templateUrl: "views/application/application-new.view.html"
+            })
             .otherwise ({
                 redirectTo: "/developer"
             });
