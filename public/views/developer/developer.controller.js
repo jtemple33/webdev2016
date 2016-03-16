@@ -72,6 +72,9 @@
                 .then (
                     function (response) {
 
+                    },
+                    function (err) {
+                        vm.error = err;
                     }
                 );
         }
