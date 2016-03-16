@@ -15,7 +15,13 @@ module.exports = function (db) {
     return api;
 
     function deleteDeveloper (username) {
+        Developer
+            .remove (
+                {username: username},
+                function (err, stats) {
 
+                }
+            );
     }
 
     function updateDeveloper (username, developer) {
