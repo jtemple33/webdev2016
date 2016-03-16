@@ -9,7 +9,8 @@
         vm.username = $routeParams.username;
     }
 
-    function newApplicationController () {
-
+    function newApplicationController ($routeParams) {
+        var vm = this;
+        vm.username = $routeParams.username;
     }
 })();
