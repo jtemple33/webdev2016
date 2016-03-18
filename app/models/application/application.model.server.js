@@ -6,9 +6,14 @@ module.exports = function () {
 
     var api = {
         createApplication: createApplication,
-        findApplicationsForUsername: findApplicationsForUsername
+        findApplicationsForUsername: findApplicationsForUsername,
+        findApplicationById: findApplicationById
     };
     return api;
+
+    function findApplicationById (applicationId) {
+
+    }
 
     function findApplicationsForUsername (username) {
         var deferred = q.defer();

@@ -5,6 +5,8 @@ module.exports = function (app, applicationModel) {
 
     function findApplicationById (req, res) {
         var applicationId = req.params.applicationId;
+        applicationModel
+            .findApplicationById(applicationId);
     }
 
     function findApplicationsForUsername (req, res) {
