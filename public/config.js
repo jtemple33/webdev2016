@@ -5,6 +5,7 @@
 
     function Configure ($routeProvider) {
         $routeProvider
+            // developer routes
             .when ("/developer", {
                 templateUrl: "views/developer/developer-list.view.html",
                 controller: "DeveloperListController",
@@ -20,6 +21,8 @@
                 controller: "EditDeveloperController",
                 controllerAs: "model"
             })
+
+            // application routes
             .when ("/developer/:username/application", {
                 templateUrl: "views/application/application-list.view.html",
                 controller: "ApplicationListController",
@@ -30,6 +33,10 @@
                 controller: "NewApplicationController",
                 controllerAs: "model"
             })
+            .when ("/developer/:username/application/edit/:applicationId", {
+                templateUrl: "views/application/application-edit.view.html"
+            })
+
             .otherwise ({
                 redirectTo: "/developer"
             });
