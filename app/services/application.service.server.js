@@ -1,5 +1,10 @@
 module.exports = function (app, applicationModel) {
     app.post ("/api/developer/:username/application", createApplication);
+    app.get ("/api/developer/:username/application", findApplicationsForUsername);
+
+    function findApplicationsForUsername (req, res) {
+        var username = req.params.username;
+    }
 
     function createApplication (req, res) {
         var username = req.params.username;
