@@ -11,7 +11,7 @@
         return api;
 
         function findApplicationsForUsername (username) {
-            $http.get ("/api/developer/"+username+"/application");
+            return $http.get ("/api/developer/"+username+"/application");
         }
 
         function  createApplication (application) {

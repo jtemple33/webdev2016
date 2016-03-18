@@ -8,7 +8,7 @@ module.exports = function (app, applicationModel) {
             .findApplicationsForUsername (username)
             .then (
                 function (developers) {
-
+                    res.json (developers);
                 }
             );
     }

@@ -21,7 +21,7 @@ module.exports = function () {
                     }
                 }
             );
-        return deferred.promise();
+        return deferred.promise;
     }
 
     function createApplication (application) {
