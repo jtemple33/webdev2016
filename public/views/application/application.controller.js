@@ -16,6 +16,9 @@
                 .then (
                     function (response) {
                         vm.applications = response.data;
+                    },
+                    function (err) {
+                        vm.error = err;
                     }
                 )
         }
