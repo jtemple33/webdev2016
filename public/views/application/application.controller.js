@@ -10,7 +10,13 @@
 
         var vm = this;
         vm.username = $routeParams.username;
+        vm.applicationId = $routeParams.applicationId;
 
+        function init () {
+            ApplicationService
+                .findApplicationById($routeParams.applicationId)
+        }
+        init ();
     }
 
     function applicationListController (
