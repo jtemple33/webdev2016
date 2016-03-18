@@ -4,6 +4,8 @@ module.exports = function (app, applicationModel) {
 
     function findApplicationsForUsername (req, res) {
         var username = req.params.username;
+        applicationModel
+            .findApplicationsForUsername (username)
     }
 
     function createApplication (req, res) {

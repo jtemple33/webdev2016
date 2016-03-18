@@ -5,9 +5,14 @@ module.exports = function () {
     var Application = mongoose.model("Application", ApplicationSchema);
 
     var api = {
-        createApplication: createApplication
+        createApplication: createApplication,
+        findApplicationsForUsername: findApplicationsForUsername
     };
     return api;
+
+    function findApplicationsForUsername (username) {
+        console.log(username);
+    }
 
     function createApplication (application) {
         var deferred = q.defer();
