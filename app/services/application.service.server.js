@@ -1,6 +1,11 @@
 module.exports = function (app, applicationModel) {
     app.post ("/api/developer/:username/application", createApplication);
     app.get ("/api/developer/:username/application", findApplicationsForUsername);
+    app.get ("/api/application/:applicationId", findApplicationById);
+
+    function findApplicationById (req, res) {
+        var applicationId = req.params.applicationId;
+    }
 
     function findApplicationsForUsername (req, res) {
         var username = req.params.username;

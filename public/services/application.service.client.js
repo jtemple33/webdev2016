@@ -12,7 +12,7 @@
         return api;
 
         function findApplicationById (applicationId) {
-
+            $http.get ("/api/application/"+applicationId);
         }
 
         function findApplicationsForUsername (username) {
