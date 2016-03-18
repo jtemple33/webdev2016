@@ -7,8 +7,8 @@ module.exports = function (app, applicationModel) {
         applicationModel
             .findApplicationsForUsername (username)
             .then (
-                function (developers) {
-                    res.json (developers);
+                function (applications) {
+                    res.json (applications);
                 },
                 function (err) {
                     res.status(400).send(err);

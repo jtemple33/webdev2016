@@ -14,4 +14,8 @@
     {{model.error}}
 </div>
 
-{{model.applications}}
+<table class="table table-striped">
+    <tr ng-repeat="application in model.applications">
+        {{application.name}}
+    </tr>
+</table>
