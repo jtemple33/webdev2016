@@ -6,7 +6,11 @@ module.exports = function (app, applicationModel) {
         var username = req.params.username;
         applicationModel
             .findApplicationsForUsername (username)
-            .then ();
+            .then (
+                function (developers) {
+
+                }
+            );
     }
 
     function createApplication (req, res) {
