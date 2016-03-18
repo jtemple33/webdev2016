@@ -2,7 +2,13 @@
     angular
         .module ("WebAppMakerApp")
         .controller ("ApplicationListController", applicationListController)
-        .controller ("NewApplicationController", newApplicationController);
+        .controller ("NewApplicationController", newApplicationController)
+        .controller ("EditApplicationController", editApplicationController);
+
+    function editApplicationController
+        ($routeParams, ApplicationService) {
+
+    }
 
     function applicationListController (
         $routeParams, ApplicationService) {
