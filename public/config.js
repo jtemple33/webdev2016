@@ -45,6 +45,9 @@
                 controller: "PageListController",
                 controllerAs: "model"
             })
+            .when ("/developer/:username/application/:applicationId/new", {
+                templateUrl: "views/page/page-new.view.html"
+            })
 
             .otherwise ({
                 redirectTo: "/developer"
