@@ -4,4 +4,6 @@ module.exports = function (app, db) {
 
     var applicationModel = require("./models/application/application.model.server.js")();
     var applicationService = require("./services/application.service.server.js")(app, applicationModel);
+
+    var pageService = require("./services/page.service.server.js")(app);
 };

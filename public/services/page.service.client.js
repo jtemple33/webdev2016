@@ -9,8 +9,8 @@
         };
         return api;
 
-        function createPage(page) {
-            console.log(page);
+        function createPage(applicationId, page) {
+            return $http.post("/api/application/"+applicationId+"/page", page);
         }
     }
 })();

@@ -12,12 +12,13 @@
 
     }
 
-    function newPageController(PageService) {
+    function newPageController($routeParams, PageService) {
         var vm = this;
+        vm.applicationId = $routeParams.applicationId;
         vm.createPage = createPage;
 
         function createPage(page) {
-            PageService.createPage(page);
+            PageService.createPage(vm.applicationId, page);
         }
     }
 
