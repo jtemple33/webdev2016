@@ -10,6 +10,9 @@ module.exports = function (app, applicationModel) {
             .then(
                 function(application) {
                     res.json(application);
+                },
+                function(err) {
+                    res.status(400).send(err);
                 }
             );
     }

@@ -5,6 +5,10 @@
 
 <h2>Edit Application</h2>
 
+<div ng-if="model.error" class="alert alert-danger" role="alert">
+    {{model.error}}
+</div>
+
 <input ng-model="model.application.name"
        class="form-control"
        placeholder="Name"/>
