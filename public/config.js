@@ -50,10 +50,16 @@
                 controller: "NewPageController",
                 controllerAs: "model"
             })
-            // 2.0
             .when ("/developer/:username/application/:applicationId/page/:pageId/edit", {
                 templateUrl: "views/page/page-edit.view.html",
                 controller: "EditPageController",
+                controllerAs: "model"
+            })
+
+            // widget routes
+            .when ("/developer/:username/application/:applicationId/page/:pageId/widget", {
+                templateUrl: "views/widget/widget-list.view.html",
+                controller: "WidgetListController",
                 controllerAs: "model"
             })
 
