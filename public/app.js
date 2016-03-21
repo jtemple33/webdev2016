@@ -1,4 +1,5 @@
 (function () {
     angular
-        .module ("WebAppMakerApp", ["ngRoute"]);
+        .module ("WebAppMakerApp",
+            ["ngRoute", "jgaDirectives"]);
 })();
