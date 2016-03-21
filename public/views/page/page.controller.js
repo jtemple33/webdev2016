@@ -10,10 +10,18 @@
         vm.username      = $routeParams.username;
         vm.applicationId = $routeParams.applicationId;
 
-        // 1.0 - query pages for this application on control load
         function init() {
             PageService
                 .findPagesForApplication(vm.applicationId)
+                // 1.0
+                .then(
+                    function (response) {
+                        vm.pages = response.data;
+                    },
+                    function (err) {
+                        vm.error = err;
+                    }
+                )
         }
         init();
     }
