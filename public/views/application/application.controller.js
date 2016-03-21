@@ -17,8 +17,7 @@
                 .findApplicationById($routeParams.applicationId)
                 .then(
                     function(response) {
-                        var application = response.data;
-                        console.log(application);
+                        vm.application = response.data;
                     }
                 )
         }
