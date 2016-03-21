@@ -4,11 +4,22 @@ module.exports = function(applicationModel) {
 
     var api = {
         createPage: createPage,
-        findPagesForApplication: findPagesForApplication
+        findPagesForApplication: findPagesForApplication,
+        findPage: findPage
     };
     return api;
 
-    // 5.0
+    // 4.0
+    function findPage(applicationId, pageId) {
+        return Application
+            .findById(applicationId)
+            .then(
+                function(application){
+                    return application.pages.id(pageId);
+                }
+            );
+    }
+
     function findPagesForApplication(applicationId) {
         // use select() to retrieve a particular field
         return Application.findById(applicationId).select("pages");
