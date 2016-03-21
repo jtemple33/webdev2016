@@ -1,4 +1,7 @@
-module.exports = function(db) {
+module.exports = function(applicationModel) {
+
+    var Application = applicationModel.getMongooseModel();
+
     var api = {
         createPage: createPage
     };
@@ -7,5 +10,8 @@ module.exports = function(db) {
     function createPage(applicationId, page) {
         console.log(applicationId);
         console.log(page);
+        Application.findById(applicationId, function(err, app){
+            console.log(app);
+        });
     }
 };
