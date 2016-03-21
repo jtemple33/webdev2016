@@ -6,7 +6,7 @@
         .controller ("EditApplicationController", editApplicationController);
 
     function editApplicationController
-        ($routeParams, ApplicationService) {
+        ($routeParams, ApplicationService, $location) {
 
         var vm = this;
         vm.username = $routeParams.username;
@@ -29,7 +29,15 @@
 
         function removeApplication(application) {
             ApplicationService
-                .removeApplication(application);
+                .removeApplication(application)
+                .then(
+                    function(response) {
+                        $location.url ("/developer/"+vm.username+"/application");
+                    },
+                    function(err) {
+                        vm.error = err;
+                    }
+                );
         }
     }
 
