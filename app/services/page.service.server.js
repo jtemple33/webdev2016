@@ -4,8 +4,36 @@ module.exports = function (app, applicationModel) {
     app.get    ("/api/application/:applicationId/page/:pageId", findPage);
     app.delete ("/api/application/:applicationId/page/:pageId", removePage);
     app.put    ("/api/application/:applicationId/page/:pageId", updatePage);
+    app.put    ("/api/application/:applicationId/page", updatePages);
 
     var pageModel   = require("../models/page/page.model.server.js")(applicationModel);
+
+    function updatePages (req, res) {
+        var applicationId = req.params.applicationId;
+        var startIndex = req.query.startIndex;
+        var endIndex = req.query.endIndex;
+
+        if(startIndex && endIndex) {
+            pageModel
+                .sortPage(applicationId, startIndex, endIndex)
+                .then(
+                    function(stat) {
+                        return pageModel.findPagesForApplication(applicationId);
+                    },
+                    function(err) {
+                        res.status(400).send(err);
+                    }
+                )
+                .then(
+                    function(application) {
+                        res.json(application.pages);
+                    },
+                    function(err) {
+                        res.status(400).send(err);
+                    }
+                );
+        }
+    }
 
     function updatePage (req, res) {
         var applicationId = req.params.applicationId;
@@ -19,7 +47,7 @@ module.exports = function (app, applicationModel) {
                 function(err) {
                     res.status(400).send(err);
                 }
-            )
+            );
     }
 
     function removePage (req, res) {
