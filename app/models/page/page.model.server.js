@@ -7,9 +7,25 @@ module.exports = function(applicationModel) {
         findPagesForApplication: findPagesForApplication,
         findPage: findPage,
         removePage: removePage,
-        updatePage: updatePage
+        updatePage: updatePage,
+        sortPage: sortPage
     };
     return api;
+
+    function sortPage(applicationId, startIndex, endIndex) {
+        return Application
+            .findById(applicationId)
+            .then(
+                function(application) {
+                    application.pages.splice(endIndex, 0, application.pages.splice(startIndex, 1)[0]);
+
+                    // notify mongoose 'pages' field changed
+                    application.markModified("pages");
+
+                    application.save();
+                }
+            );
+    }
 
     function updatePage(applicationId, pageObj) {
         return Application
