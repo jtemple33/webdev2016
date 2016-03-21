@@ -46,7 +46,9 @@
                 controllerAs: "model"
             })
             .when ("/developer/:username/application/:applicationId/new", {
-                templateUrl: "views/page/page-new.view.html"
+                templateUrl: "views/page/page-new.view.html",
+                controller: "NewPageController",
+                controllerAs: "model"
             })
 
             .otherwise ({
