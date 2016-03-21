@@ -11,6 +11,7 @@
         var vm = this;
         vm.username = $routeParams.username;
         vm.applicationId = $routeParams.applicationId;
+        vm.removeApplication = removeApplication;
 
         function init () {
             ApplicationService
@@ -25,6 +26,11 @@
                 )
         }
         init ();
+
+        function removeApplication(application) {
+            ApplicationService
+                .removeApplication(application);
+        }
     }
 
     function applicationListController (

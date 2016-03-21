@@ -7,9 +7,14 @@
         var api = {
             createApplication: createApplication,
             findApplicationsForUsername: findApplicationsForUsername,
-            findApplicationById: findApplicationById
+            findApplicationById: findApplicationById,
+            removeApplication: removeApplication
         };
         return api;
+
+        function removeApplication(application) {
+            console.log(application);
+        }
 
         function findApplicationById (applicationId) {
             return $http.get ("/api/application/"+applicationId);
