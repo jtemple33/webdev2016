@@ -3,10 +3,25 @@ module.exports = function (app, applicationModel) {
     app.get    ("/api/application/:applicationId/page", findPagesForApplication);
     app.get    ("/api/application/:applicationId/page/:pageId", findPage);
     app.delete ("/api/application/:applicationId/page/:pageId", removePage);
+    app.put    ("/api/application/:applicationId/page/:pageId", updatePage);
 
     var pageModel   = require("../models/page/page.model.server.js")(applicationModel);
 
-    // 4.0
+    function updatePage (req, res) {
+        var applicationId = req.params.applicationId;
+        var page = req.body;
+        pageModel
+            .updatePage(applicationId, page)
+            .then(
+                function(stat) {
+                    res.send(200);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            )
+    }
+
     function removePage (req, res) {
         var applicationId = req.params.applicationId;
         var pageId = req.params.pageId;

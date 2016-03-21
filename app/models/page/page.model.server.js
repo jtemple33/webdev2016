@@ -6,11 +6,24 @@ module.exports = function(applicationModel) {
         createPage: createPage,
         findPagesForApplication: findPagesForApplication,
         findPage: findPage,
-        removePage: removePage
+        removePage: removePage,
+        updatePage: updatePage
     };
     return api;
 
-    // 5.0
+    function updatePage(applicationId, pageObj) {
+        return Application
+            .findById(applicationId)
+            .then(
+                function(application){
+                    var page   = application.pages.id(pageObj._id);
+                    page.name  = pageObj.name;
+                    page.title = pageObj.title;
+                    return application.save();
+                }
+            );
+    }
+
     function removePage(applicationId, pageId) {
         return Application
             .findById(applicationId)

@@ -2,6 +2,10 @@
    class="pull-left btn btn-danger">
     <span class="glyphicon glyphicon-chevron-left"></span>
 </a>
+<a ng-click="model.updatePage (model.page)"
+   class="pull-right btn btn-primary">
+    <span class="glyphicon glyphicon-ok"></span>
+</a>
 
 <h2>Edit Page</h2>
 
@@ -13,7 +17,6 @@
        class="form-control"
        placeholder="Page Title"/>
 
-<!-- 1.0 -->
 <button ng-click="model.removePage(model.page)"
         class="btn btn-danger btn-block">
     Delete
