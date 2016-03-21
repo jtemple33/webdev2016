@@ -8,5 +8,5 @@ module.exports = function () {
         size: Number
     });
 
-    return HearderSchema;
+    return HeaderSchema;
 };

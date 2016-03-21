@@ -2,11 +2,11 @@ var mongoose = require("mongoose");
 
 module.exports = function () {
 
-    var HeaderSchema    = require("./header.schema.server.js")
-    var LabelSchema     = require("./label.schema.server.js")
-    var TextInputSchema = require("./text-input.schema.server.js")
-    var LinkSchema      = require("./link.schema.server.js")
-    var ButtonSchema    = require("./button.schema.server.js")
+    var HeaderSchema    = require("./header.schema.server.js")();
+    var LabelSchema     = require("./label.schema.server.js")();
+    var TextInputSchema = require("./text-input.schema.server.js")();
+    var LinkSchema      = require("./link.schema.server.js")();
+    var ButtonSchema    = require("./button.schema.server.js")();
 
     var WidgetSchema = mongoose.Schema({
         name: String,
@@ -18,5 +18,5 @@ module.exports = function () {
         button: ButtonSchema
     });
 
-    return PageSchema;
+    return WidgetSchema;
 };
