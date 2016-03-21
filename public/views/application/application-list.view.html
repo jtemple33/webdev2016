@@ -17,7 +17,9 @@
 <table class="table table-striped">
     <tr ng-repeat="application in model.applications">
         <td>
-            {{application.name}}
+            <a href="#/developer/{{model.username}}/application/{{application._id}}/page">
+                {{application.name}}
+            </a>
             <a href="#/developer/{{model.username}}/application/edit/{{application._id}}"
                class="pull-right btn btn-warning">
                 <span class="glyphicon glyphicon-info-sign"></span>
