@@ -62,6 +62,11 @@
                 controller: "WidgetListController",
                 controllerAs: "model"
             })
+            .when ("/developer/:username/application/:applicationId/page/:pageId/choose-widget", {
+                templateUrl: "views/widget/widget-choose.view.html",
+                controller: "ChooseWidgetController",
+                controllerAs: "model"
+            })
 
             .otherwise ({
                 redirectTo: "/developer"
