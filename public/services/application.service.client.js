@@ -13,7 +13,7 @@
         return api;
 
         function removeApplication(application) {
-            console.log(application);
+            return $http.delete ("/api/application/"+application._id);
         }
 
         function findApplicationById (applicationId) {

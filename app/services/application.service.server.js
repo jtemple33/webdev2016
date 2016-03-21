@@ -1,7 +1,22 @@
 module.exports = function (app, applicationModel) {
-    app.post ("/api/developer/:username/application", createApplication);
-    app.get ("/api/developer/:username/application", findApplicationsForUsername);
-    app.get ("/api/application/:applicationId", findApplicationById);
+    app.post   ("/api/developer/:username/application", createApplication);
+    app.get    ("/api/developer/:username/application", findApplicationsForUsername);
+    app.get    ("/api/application/:applicationId", findApplicationById);
+    app.delete ("/api/application/:applicationId", removeApplication);
+
+    function removeApplication (req, res) {
+        var applicationId = req.params.applicationId;
+        applicationModel
+            .removeApplication(applicationId)
+            .then(
+                function(response) {
+                    res.json(response.result);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            );
+    }
 
     function findApplicationById (req, res) {
         var applicationId = req.params.applicationId;

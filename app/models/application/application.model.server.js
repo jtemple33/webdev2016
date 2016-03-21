@@ -7,9 +7,14 @@ module.exports = function () {
     var api = {
         createApplication: createApplication,
         findApplicationsForUsername: findApplicationsForUsername,
-        findApplicationById: findApplicationById
+        findApplicationById: findApplicationById,
+        removeApplication: removeApplication
     };
     return api;
+
+    function removeApplication(applicationId) {
+        return Application.remove().where("_id").equals(applicationId);
+    }
 
     function findApplicationById (applicationId) {
         return Application.findById (applicationId);
