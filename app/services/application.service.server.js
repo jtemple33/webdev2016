@@ -7,7 +7,11 @@ module.exports = function (app, applicationModel) {
         var applicationId = req.params.applicationId;
         applicationModel
             .findApplicationById(applicationId)
-            .then();
+            .then(
+                function(application) {
+                    res.json(application);
+                }
+            );
     }
 
     function findApplicationsForUsername (req, res) {

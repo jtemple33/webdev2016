@@ -15,6 +15,12 @@
         function init () {
             ApplicationService
                 .findApplicationById($routeParams.applicationId)
+                .then(
+                    function(response) {
+                        var application = response.data;
+                        console.log(application);
+                    }
+                )
         }
         init ();
     }
