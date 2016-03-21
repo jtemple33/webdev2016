@@ -9,9 +9,14 @@
             findPagesForApplication: findPagesForApplication,
             findPage: findPage,
             removePage: removePage,
-            updatePage: updatePage
+            updatePage: updatePage,
+            sortPage: sortPage
         };
         return api;
+
+        function sortPage(applicationId, startIndex, endIndex) {
+            return $http.put("/api/application/"+applicationId+"/page?startIndex="+startIndex+"&endIndex="+endIndex);
+        }
 
         function updatePage(applicationId, page) {
             return $http.put("/api/application/"+applicationId+"/page/"+page._id, page);

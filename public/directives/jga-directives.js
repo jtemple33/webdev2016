@@ -17,6 +17,9 @@
                     stop: function(event, ui) {
                         ui.item.find("a").show();
                         end = ui.item.index();
+                        if(start >= end) {
+                            start--;
+                        }
                         scope.model.sortPage(start, end);
                     }
                 });

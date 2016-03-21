@@ -79,7 +79,16 @@
         init();
 
         function sortPage(start, end) {
-            console.log([start, end]);
+            PageService
+                .sortPage(vm.applicationId, start, end)
+                .then(
+                    function (response) {
+                        vm.pages = response.data;
+                    },
+                    function (err) {
+                        vm.error = err;
+                    }
+                );
         }
     }
 
