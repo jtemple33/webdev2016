@@ -12,13 +12,21 @@
 
     }
 
-    function newPageController($routeParams, PageService) {
+    function newPageController($routeParams, PageService, $location) {
+
         var vm = this;
         vm.applicationId = $routeParams.applicationId;
+        vm.username      = $routeParams.username;
         vm.createPage = createPage;
 
         function createPage(page) {
-            PageService.createPage(vm.applicationId, page);
+            PageService
+                .createPage(vm.applicationId, page)
+                .then(
+                    function(response) {
+                        $location.url("/developer/"+vm.username+"/application/"+vm.applicationId+"/page");
+                    }
+                )
         }
     }
 
