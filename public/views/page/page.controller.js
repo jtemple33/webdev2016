@@ -12,12 +12,12 @@
 
     }
 
-    function newPageController() {
+    function newPageController(PageService) {
         var vm = this;
         vm.createPage = createPage;
 
         function createPage(page) {
-            console.log(page);
+            PageService.createPage(page);
         }
     }
 
