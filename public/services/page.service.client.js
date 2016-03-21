@@ -7,11 +7,17 @@
         var api = {
             createPage: createPage,
             findPagesForApplication: findPagesForApplication,
-            findPage: findPage
+            findPage: findPage,
+            removePage: removePage
         };
         return api;
 
-        // 2.0
+        // 3.0
+        function removePage(applicationId, pageId) {
+            return $http.delete("/api/application/"+applicationId+"/page/"+pageId);
+        }
+
+
         function findPage(applicationId, pageId) {
             return $http.get("/api/application/"+applicationId+"/page/"+pageId);
         }
