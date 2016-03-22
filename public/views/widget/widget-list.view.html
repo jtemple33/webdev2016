@@ -10,7 +10,7 @@
 <h2>Widgets</h2>
 
 <div ng-repeat="widget in model.widgets">
-    <div ng-switch="widget.widgetType">
+    <div ng-switch="widget.widgetType" class="jga-widget">
         <div ng-switch-when="HEADER">
             <h1 ng-if="widget.header.size===1">
                 {{widget.text}}
@@ -50,7 +50,11 @@
                    value="{{widget.text}}"
                    placeholder="{{widget.placeholder}}"
                    class="form-control"></textarea>
-
+        </div>
+        <div ng-switch-when="BUTTON">
+            <a class="btn btn-default btn-block">
+                {{widget.text}}
+            </a>
         </div>
     </div>
 </div>
