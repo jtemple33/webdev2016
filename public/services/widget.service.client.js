@@ -11,7 +11,7 @@
         return api;
 
         function getWidgets(applicationId, pageId) {
-            $http.get("/api/application/"+applicationId+"/page/"+pageId+"/widget");
+            return $http.get("/api/application/"+applicationId+"/page/"+pageId+"/widget");
         }
 
         function addWidget(applicationId, pageId, widgetType) {

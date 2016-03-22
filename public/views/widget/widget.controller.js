@@ -13,7 +13,15 @@
 
         function init() {
             WidgetService
-                .getWidgets(vm.applicationId, vm.pageId);
+                .getWidgets(vm.applicationId, vm.pageId)
+                .then(
+                    function(response) {
+                        vm.widgets = response.data;
+                    },
+                    function(err) {
+                        vm.error = err;
+                    }
+                );
         }
         init();
 
@@ -39,7 +47,7 @@
                     function(err) {
                         vm.error = err;
                     }
-                )
+                );
         }
     }
 
