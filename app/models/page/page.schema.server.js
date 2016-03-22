@@ -11,7 +11,7 @@ module.exports = function () {
             widgetType: String,
             name: String,
             title: String,
-            text: String,
+            text: {type:String, default:'Text'},
             header: {
                 size: Number
             },
