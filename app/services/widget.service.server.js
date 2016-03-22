@@ -9,6 +9,14 @@ module.exports = function (app, applicationModel) {
         var pageId = req.params.pageId;
         var widgetType = req.query.widgetType;
         widgetModel
-            .createWidget(applicationId, pageId, widgetType);
+            .createWidget(applicationId, pageId, widgetType)
+            .then(
+                function(application) {
+                    res.send(200);
+                },
+                function(err) {
+                    res.status(400).send(err);
+                }
+            )
     }
 }
