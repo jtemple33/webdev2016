@@ -11,11 +11,11 @@
                 .sortable({
                     axis: "y",
                     sort: function(event, ui) {
-                        ui.helper.find("a").hide();
+                        //ui.helper.find("a").hide();
                         start = ui.item.index();
                     },
                     stop: function(event, ui) {
-                        ui.item.find("a").show();
+                        //ui.item.find("a").show();
                         end = ui.item.index();
                         if(start >= end) {
                             start--;
