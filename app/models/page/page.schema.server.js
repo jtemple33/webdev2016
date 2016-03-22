@@ -7,7 +7,24 @@ module.exports = function () {
     var PageSchema = mongoose.Schema({
         name: String,
         title: String,
-        widgets: [WidgetSchema],
+        widgets: [{
+            widgetType: String,
+            name: String,
+            title: String,
+            text: String,
+            header: {
+                size: Number
+            },
+            button: {
+                url: String,
+                pageId: String,
+                icon: String
+            },
+            textInput: {
+                placeholder: String,
+                rows: Number
+            }
+        }],
         dateCreated: {type: Date, default: Date.now}
     });
 
