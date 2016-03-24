@@ -8,12 +8,21 @@
         $scope.login = login;
 
         function login(user) {
+            UserService
+                .findUserByCredentials(user.username, user.password)
+                .then(function (response) {
+                    $rootScope.currentUser = response.data;
+                    $location.url('/profile');
+                })
+        }
+
+        /*function login(user) {
             UserService.findUserByCredentials(user.username, user.password, function(res) {
                 if (res) {
                     $rootScope.currentUser = res;
                     $location.url('/profile');
                 }
             });
-        }
+        }*/
     }
 })();
