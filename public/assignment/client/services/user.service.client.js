@@ -3,14 +3,17 @@
         .module("FormBuilderApp")
         .factory("UserService", UserService);
 
-    function UserService() {
-        var users = [ {	"_id":123, "firstName":"Alice", "lastName":"Wonderland", "username":"alice", "password":"alice", "roles": ["student"]},
+    function UserService($http) {
+       /* var users = [ {	"_id":123, "firstName":"Alice", "lastName":"Wonderland", "username":"alice", "password":"alice", "roles": ["student"]},
             {"_id":234, "firstName":"Bob", "lastName":"Hope", "username":"bob", "password":"bob", "roles": ["admin"]},
             {"_id":345, "firstName":"Charlie", "lastName":"Brown", "username":"charlie","password":"charlie", "roles": ["faculty"]},
             {"_id":456, "firstName":"Dan", "lastName":"Craig", "username":"dan", "password":"dan", "roles": ["faculty", "admin"]},
             {"_id":567, "firstName":"Edward", "lastName":"Norton", "username":"ed", "password":"ed", "roles": ["student"]}];
 
+        */
+
         var api = {
+            findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
@@ -20,47 +23,72 @@
         };
         return api;
 
-        function findUserByCredentials(username, password, callback) {
-            for (var i = 0; i <users.length; i++) {
-                var currentUser = users[i];
-                if (currentUser.username== username && currentUser.password == password) {
-                    callback(currentUser);
-                    break;
+        function findUserByUsername(username) {
+            return $http.get("/api/assignment/user/username" + username);
+        }
+
+        function findUserByCredentials(username, password) {
+            return $http.get("/api/assigment/user/username/" + username + "/password" + password);
+        }
+
+        function findAllUsers() {
+            return $http.get("api/assignment/user");
+        }
+
+
+        function createUser(user) {
+            return $http.post("/api/assignment/user", user);
+        }
+
+        function deleteUser(userId) {
+            return $http.delete("/api/assignment/user/" + userId);
+        }
+
+        function updateUser(userId, user) {
+            return $http.put("/api/assignment/user/" + userId, user);
+        }
+
+            /*function findUserByCredentials(username, password, callback) {
+                for (var i = 0; i <users.length; i++) {
+                    var currentUser = users[i];
+                    if (currentUser.username== username && currentUser.password == password) {
+                        callback(currentUser);
+                        break;
+                    }
                 }
             }
-        }
 
-        function findAllUsers(callback) {
-            return callback(users);
-        }
-
-        function createUser(user, callback) {
-            users.push(user);
-            callback(user);
-        }
-
-        function findUserIndex(userId) {
-            var index = -1;
-            for (var i = 0; i <users.length; i++) {
-                var currentUser = users[i];
-                if (user._id == id) {
-                    index = i;
-                    break;
-                }
+            function findAllUsers(callback) {
+                return callback(users);
             }
-            return index;
-        }
 
-        function deleteUser(userId, callback) {
-            var index = findUserIndex(userId);
-            users.splice(index,1);
-            callback(users);
-        }
+            function createUser(user, callback) {
+                users.push(user);
+                callback(user);
+            }
 
-        function updateUser(userId, user, callback) {
-            var index = findUserIndex(userId);
-            user[index] = user;
-            callback(user);
-        }
+            function findUserIndex(userId) {
+                var index = -1;
+                for (var i = 0; i <users.length; i++) {
+                    var currentUser = users[i];
+                    if (user._id == id) {
+                        index = i;
+                        break;
+                    }
+                }
+                return index;
+            }
+
+            function deleteUser(userId, callback) {
+                var index = findUserIndex(userId);
+                users.splice(index,1);
+                callback(users);
+            }
+
+            function updateUser(userId, user, callback) {
+                var index = findUserIndex(userId);
+                user[index] = user;
+                callback(user);
+            }*/
     }
 })();
