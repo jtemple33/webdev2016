@@ -18,7 +18,6 @@
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUser: deleteUser,
-            findUserIndex: findUserIndex,
             updateUser: updateUser
         };
         return api;
@@ -28,7 +27,7 @@
         }
 
         function findUserByCredentials(username, password) {
-            return $http.get("/api/assigment/user/username/" + username + "/password" + password);
+            return $http.get("/api/assignment/user/username/" + username + "/password/" + password);
         }
 
         function findAllUsers() {
