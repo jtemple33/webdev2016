@@ -15,8 +15,7 @@ module.exports = function (app, fieldModel) {
 
     function findAllFieldsForForm(req, res) {
         var formId = req.params.formId;
-        var fieldId = req.params.fieldId;
-        res.json(fieldModel.findFieldByFormId(formId, fieldId));
+        res.json(fieldModel.findAllFieldsForForm(formId));
     }
 
     function deleteFieldByFormId(req, res) {
@@ -32,7 +31,7 @@ module.exports = function (app, fieldModel) {
         res.json(fieldModel.createFieldForForm(formId, field));
     }
 
-    function updateFieldbyFormId(req, res) {
+    function updateFieldByFormId(req, res) {
         var field = req.body;
         var formId = req.params.formId;
         res.json(fieldModel.updateFieldByFormId(formId, field));
