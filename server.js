@@ -27,4 +27,6 @@ app.get('/rest/course', function(req, res)
     res.send(courses);
 });
 
+require("./public/assignment/server/app.js")(app);
+
 app.listen(port, ipaddress);
