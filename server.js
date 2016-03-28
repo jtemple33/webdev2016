@@ -9,4 +9,6 @@ app.use(bodyParser.json());
 
 require("./public/assignment/server/app.js")(app);
 
+require("./public/assignment/server/app.js")(app);
+
 app.listen(port, ipaddress);
