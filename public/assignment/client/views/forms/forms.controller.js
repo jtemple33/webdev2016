@@ -28,7 +28,7 @@
             FormService
                 .createFormForUser($rootScope.currentUser._id, form)
                 .then(function(res) {
-                    var newForm = response.data;
+                    var newForm = res.data;
                 setForms();
                 $scope.editForm = {"title": newForm.title, "_id": newForm._id, "forms": newForm.forms, "userId": res.userId};
             });
