@@ -26,7 +26,11 @@
     </thead>
     <tbody>
     <tr ng-repeat="form in userForms">
-        <td>{{form.title}}</td>
+        <td>
+            <a href="#/forms/{{form._id}}/fields">
+                {{form.title}}
+            </a>
+        </td>
         <td>
             <a ng-click="selectForm($index)" class="btn btn-warning">
                 <scan class="glyphicon glyphicon-pencil"></scan>
