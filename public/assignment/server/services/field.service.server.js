@@ -1,5 +1,5 @@
 
-module.exports = function (app, fieldModel) {
+module.exports = function(app, formModel) {
 
     app.get("/api/assignment/form/:formId/field/:fieldId", findFieldByFormId);
     app.get("/api/assignment/form/:formId/field", findAllFieldsForForm);
@@ -10,31 +10,31 @@ module.exports = function (app, fieldModel) {
     function findFieldByFormId(req, res) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        res.json(fieldModel.findFieldByFormId(formId, fieldId));
+        res.json(formModel.findFieldByFormId(formId, fieldId));
     }
 
     function findAllFieldsForForm(req, res) {
         var formId = req.params.formId;
-        res.json(fieldModel.findAllFieldsForForm(formId));
+        res.json(formModel.findAllFieldsForForm(formId));
     }
 
     function deleteFieldByFormId(req, res) {
         var formId = req.params.formId;
         var fieldId = req.params.fieldId;
-        res.json(fieldModel.deleteFieldbyFormId(formId, fieldId));
+        res.json(formModel.deleteFieldbyFormId(formId, fieldId));
     }
 
     function createFieldForForm(req, res) {
         var field = req.body;
         var formId = req.params.formId;
         field._id = (new Date).getTime();
-        res.json(fieldModel.createFieldForForm(formId, field));
+        res.json(formModel.createFieldForForm(formId, field));
     }
 
     function updateFieldByFormId(req, res) {
         var field = req.body;
         var formId = req.params.formId;
-        res.json(fieldModel.updateFieldByFormId(formId, field));
+        res.json(formModel.updateFieldByFormId(formId, field));
     }
 
 

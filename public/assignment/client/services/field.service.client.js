@@ -2,11 +2,11 @@
 (function () {
     angular
         .module("FormBuilderApp")
-        .factory("FieldService", FormService);
+        .factory("FieldService", FieldService);
 
     function FieldService($http) {
         var api = {
-            findFieldsForForm: findFieldsForForm,
+            //findFieldsForForm: findFieldsForForm,
             createFieldForForm: createFieldForForm,
             getFieldsForForm: getFieldsForForm,
             getFieldForForm: getFieldForForm,
@@ -15,7 +15,6 @@
         };
 
         return api;
-
 
         function createFieldForForm(formId, field) {
             return $http.post("/api/assignment/form/" + formId + "/field", field)

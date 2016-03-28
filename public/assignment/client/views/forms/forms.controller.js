@@ -16,33 +16,45 @@
         })();
 
         function setForms() {
-            FormService.findAllFormsForUser($rootScope.currentUser._id, function(res) {
-                $scope.userForms = res;
+            FormService
+                .findAllFormsForUser($rootScope.currentUser._id)
+                .then(function(res) {
+                $scope.userForms = res.data;
             });
         }
 
         function addForm(newForm) {
             var form = {"title": newForm.title};
-            FormService.createFormForUser($rootScope.currentUser._id, form, function(res) {
+            FormService
+                .createFormForUser($rootScope.currentUser._id, form)
+                .then(function(res) {
+                    var newForm = response.data;
                 setForms();
-                $scope.editForm = {"title": res.title, "_id": res._id, "userId": res.userId};
+                $scope.editForm = {"title": newForm.title, "_id": newForm._id, "forms": newForm.forms, "userId": res.userId};
             });
 
         }
 
         function updateForm(newForm) {
-            // The form with the given ID has been selected by the user
-            // Update the form the user selected, with this new form
-            FormService.updateFormById(newForm._id, newForm, updateUserForms);
+            FormService
+                .updateFormById(newForm._id, newForm)
+                .then(function (res) {
+                    setForms();
+                });
         }
 
 
-        function deleteForm(formId, index) {
-            FormService.deleteFormById(formId, updateUserForms);
+        function deleteForm(index) {
+            var form = $scope.userForms[index];
+            FormService
+                .deleteFormById(form._id, updateUserForms)
+                .then(function(res) {
+                    setForms();
+                })
         }
 
-        function selectForm(formId, formIndex) {
-            var selectedForm = FormService.findFormById(formId);
+        function selectForm(index) {
+            var selectedForm = $scope.userForms[index];
             $scope.editForm = {"title" :selectedForm.title, "userId": selectedForm.userId, "_id": selectedForm._id}
         }
 

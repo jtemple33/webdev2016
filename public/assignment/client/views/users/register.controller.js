@@ -8,25 +8,15 @@
         $scope.register = register;
 
         function register(newUser) {
+            newUser._id = (new Date()).getTime();
 
-            if ($scope.user.password != $scope.user.verifiedPassword) {
-
-                alert("Passwords do not match.  Please try again");
-
-                $scope.password = "";
-                $scope.verifiedPassword = "";
-            }
-
-            else {
-
-                UserService.createUser(newUser, function (res) {
-                    newUser._id = (new Date()).getTime();
+            UserService
+                .createUser(newUser)
+                .then(function (res) {
                     $rootScope.currentUser = newUser;
                     $location.url('/profile')
                 });
 
             }
         }
-
-    }
 })();
