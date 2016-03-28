@@ -30,22 +30,23 @@
 
     <!-- Boostrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 
-
-    <script src="app.js"></script>
-    <script src="config.js"></script>
-    <script src="views/users/register.controller.js"></script>
-    <script src="views/users/profile.controller.js"></script>
-    <script src="views/main/main.controller.js"></script>
-    <script src="services/user.service.client.js"></script>
-    <script src="views/users/login.controller.js"></script>
-    <script src="views/header/header.controller.js"></script>
-    <script src="views/forms/forms.controller.js"></script>
-    <script src="services/forms.service.client.js"></script>
+    <script src="client/app.js"></script>
+    <script src="client/config.js"></script>
+    <script src="client/views/users/register.controller.js"></script>
+    <script src="client/views/users/profile.controller.js"></script>
+    <script src="client/views/main/main.controller.js"></script>
+    <script src="client/services/user.service.client.js"></script>
+    <script src="client/views/users/login.controller.js"></script>
+    <script src="client/views/header/header.controller.js"></script>
+    <script src="client/views/forms/forms.controller.js"></script>
+    <script src="client/services/forms.service.client.js"></script>
+    <script src="client/views/forms/field.controller.js"></script>
+    <script src="client/services/forms.service.client.js"></script>
+    <script src="client/services/field.service.client.js"></script>
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="client/css/dashboard.css" rel="stylesheet">
 
 </head>
 
@@ -57,7 +58,7 @@
 
     <div class="container-fluid">
 
-        <div ng-include="'views/header/header.view.html'"></div>
+        <div ng-include="'client/views/header/header.view.html'"></div>
 
     </div>
 </nav>
@@ -65,7 +66,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <div ng-include="'views/sidebar/sidebar.view.html'"></div>
+            <div ng-include="'client/views/sidebar/sidebar.view.html'"></div>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
         </div>

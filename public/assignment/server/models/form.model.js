@@ -2,18 +2,24 @@ var forms = require("./form.mock.json");
 
 module.exports = function() {
 
-    var service = {
+    var api = {
         createFormForUser: createFormForUser,
         findAllFormsForUser: findAllFormsForUser,
         deleteFormById: deleteFormById,
         updateFormById: updateFormById,
         findFormById: findFormById,
-        findFormByTitle: findFormByTitle
+        findFormByTitle: findFormByTitle,
+        findAllFieldsForForm: findAllFieldsForForm,
+        findFieldByFormId: findFieldByFormId,
+        deleteFieldByFormId: deleteFieldByFormId,
+        createFieldForForm: createFieldForForm,
+        updateFieldByFormId: updateFieldByFormId
     };
 
-    return service;
+    return api;
 
     function createFormForUser(userId, form) {
+        form.fields = [];
         form._id = (new Date()).getTime();
         form.userId = userId;
         forms.push(form);
@@ -23,9 +29,8 @@ module.exports = function() {
     function findAllFormsForUser(userId) {
         var userForms = [];
         for (var i = 0; i < forms.length; i++) {
-            var form = forms[i];
-            if (form.userId == userId) {
-                userForms.push(form);
+            if (forms[i].userId == userId) {
+                userForms.push(forms[i]);
             }
         }
         return userForms;
@@ -71,13 +76,60 @@ module.exports = function() {
     function findFormById(id) {
         var result;
         for (var i = 0; i < forms.length; i++) {
-            var form = forms[i];
-            if (form._id == id) {
-                result = form;
+            if (forms[i]._id == id) {
+                result = forms[i];
                 break;
             }
         }
         return result;
     }
 
+    function findAllFieldsForForm(formId) {
+        var form = findFormById(formId);
+        return form.fields;
+    }
+
+    function findFieldByFormId(formId, fieldId) {
+        var form = findFormById(formId);
+        var field;
+        for (var i = 0; i < form.fields.length; i++) {
+            if (form.fields[i]._id = fieldId) {
+            field = form.fields[i];
+            break;
+            }
+        }
+        return field;
+    }
+
+    function deleteFieldByFormId(formId, fieldId) {
+        var form = findFormById(formId);
+        var field;
+        for (var i = 0; form.fields.length; i++) {
+            if (form.fields[i]._id == fieldId) {
+                field = form.fields[i];
+                form.fields.splice(i, 1);
+                break;
+            }
+        }
+        return form.fields;
+    }
+
+    function createFieldForForm(formId, field) {
+        var form = findFormById(formId);
+        form.fields.push(field);
+        return form.fields;
+    }
+
+    function updateFieldByFormId(formId, field) {
+        var form = findFormById(formId);
+        for (var i = 0; form.fields.length; i++) {
+            if (form.fields[i]._id == field._id) {
+                form.field[i].label = field.label;
+                form.field[i].type = field.type;
+                form.field[i].placeholder = field.placeholder;
+                form.field[i].options = field.options;
+            }
+        }
+        return form.fields;
+    }
 };

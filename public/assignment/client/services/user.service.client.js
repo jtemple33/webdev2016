@@ -31,9 +31,8 @@
         }
 
         function findAllUsers() {
-            return $http.get("api/assignment/user");
+            return $http.get("/api/assignment/user");
         }
-
 
         function createUser(user) {
             return $http.post("/api/assignment/user", user);

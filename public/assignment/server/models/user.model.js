@@ -62,7 +62,6 @@ module.exports = function() {
             var user = users[i];
             if (user.username == username) {
                 return user;
-                break;
             }
         }
 
@@ -73,7 +72,6 @@ module.exports = function() {
             var user = users[i];
             if (user.username == username && user.password == password) {
                 return user;
-                break;
             }
         }
     }
