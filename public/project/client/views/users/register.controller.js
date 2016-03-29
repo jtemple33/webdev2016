@@ -19,8 +19,11 @@
 
             else {
 
-                UserService.createUser(newUser, function (res) {
-                    newUser._id = (new Date()).getTime();
+                newUser._id = (new Date()).getTime();
+
+                UserService
+                    .createUser(newUser)
+                    .then(function (res) {
                     $rootScope.currentUser = newUser;
                     $location.url('/profile')
                 });

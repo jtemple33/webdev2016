@@ -7,9 +7,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 app.use(bodyParser.json());
 
-require("./public/assignment/server/app.js")(app);
-
-require("./public/assignment/server/app.js")(app);
+require("./public/project/server/app.js")(app);
 
 require("./public/assignment/server/app.js")(app);
 

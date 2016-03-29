@@ -8,7 +8,9 @@
         $scope.update = update;
 
         function update(user) {
-            UserService.updateUser(user._id, user, function(res) {
+            UserService
+                .updateUser(user._id, user)
+                .then(function(res) {
                 $rootScope.currentUser = user;
             });
         }
