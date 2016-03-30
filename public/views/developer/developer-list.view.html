@@ -1,0 +1,21 @@
+<a href="#/developer/new" class="pull-right btn btn-primary">
+    <span class="glyphicon glyphicon-plus"></span>
+</a>
+<h2>Developers</h2>
+
+<div ng-if="model.error" class="alert alert-success" role="alert">
+    {{model.error}}
+</div>
+
+<table class="table table-striped">
+    <tr ng-repeat="developer in model.developers">
+        <td>
+            <a href="#/developer/{{developer.username}}/application">
+                {{developer.username}}
+            </a>
+            <a href="#/developer/edit/{{developer.username}}" class="pull-right">
+                <span class="glyphicon glyphicon-info-sign"></span>
+            </a>
+        </td>
+    </tr>
+</table>

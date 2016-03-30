@@ -1,0 +1,28 @@
+<a href="#/developer/{{model.username}}/application/{{model.applicationId}}/page"
+   class="pull-left btn btn-danger">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+</a>
+<a ng-click="model.updatePage (model.page)"
+   class="pull-right btn btn-primary">
+    <span class="glyphicon glyphicon-ok"></span>
+</a>
+
+<h2>Edit Page</h2>
+
+<div ng-if="model.error"
+     class="alert alert-danger">
+    {{model.error}}
+</div>
+
+<input ng-model="model.page.name"
+       class="form-control"
+       placeholder="Page Name"/>
+
+<input ng-model="model.page.title"
+       class="form-control"
+       placeholder="Page Title"/>
+
+<button ng-click="model.removePage(model.page)"
+        class="btn btn-danger btn-block">
+    Delete
+</button>

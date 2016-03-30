@@ -3,7 +3,7 @@
         .module("238Hem")
         .controller("StretchWhiteController", StretchWhiteController);
 
-    function StretchWhiteController($scope, $rootScope, ReviewService) {
+    function StretchWhiteController($routeParams, $scope, $rootScope, ReviewService) {
 
     $scope.setForms = setForms;
     $scope.addReview = addReview;
@@ -18,7 +18,11 @@
     })();
 
     function getReviews() {
-        $scope.reviews = ReviewService.allReviews();
+        ReviewService
+            .allReviewsByProductId(productId)
+            .then(function (response) {
+                $scope.reviews = response.data;
+            })
     }
 
 

@@ -11,8 +11,8 @@
     <ul class="nav navbar-nav navbar-right">
         <li ng-class="{'active': $location.path() == '/register'}" ng-show="!currentUser"><a href="#/register">Register</a></li>
         <li ng-class="{'active': $location.path() == '/login'}" ng-show="!currentUser"><a href="#login">Login</a></li>
-        <li ng-class="{'active': $location.path() == '/cart'}" ><a href="#cart">Cart</a></li>
         <li ng-class="{'active': $location.path() == '/profile'}" ng-show="currentUser"><a href="#profile">{{currentUser.username}}</a></li>
+        <li ng-class="{'active': $location.path() == '/cart'}" ng-show="currentUser"><a href="#cart">Cart</a></li>
         <li ng-class="{'active': $location.path() == '/admin'}" ng-show="currentUser && currentUser.roles.indexOf('admin') >= 0"><a href="#/admin">Admin</a></li>
         <li ng-show="currentUser"><a ng-click="logout()" href="#/home">Logout</a></li>
 

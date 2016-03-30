@@ -11,8 +11,8 @@
             UserService
                 .findUserByCredentials(user.username, user.password)
                 .then(function(res) {
-                if (res) {
-                    $rootScope.currentUser = res;
+                if (res.data) {
+                    $rootScope.currentUser = res.data;
                     $location.url('/profile');
                 }
             });

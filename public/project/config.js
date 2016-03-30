@@ -9,12 +9,14 @@
                 templateUrl: "views/store/our_story.view.html"
             })
             .when("/dress_shirts", {
-                templateUrl: "views/store/dress_shirts.view.html"
+                templateUrl: "views/store/products.view.html",
+                controller: "ProductController"
             })
             .when("/sale", {
                 templateUrl: "views/store/sale.view.html"
             })
             .when("/performance_stretch_white", {
+                //"/products/:productId/details"
                 templateUrl: "views/products/performance_stretch_white.view.html",
                 controller: "StretchWhiteController"
             })
