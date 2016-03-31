@@ -2,7 +2,7 @@
      style="width:804px;height:321px;">
 
 <h2>
-    Performance Dress Shirts
+    {{product.productCategory}}
 </h2>
 
 
@@ -60,12 +60,16 @@
         </tr>
         </thead>
         <tbody>
-        <!--<tr ng-repeat="review in reviews">
+        <tr>
+            <td colspan="100%" align="center"  ng-show="!reviews.length">No reviews yet!</td>
+        </tr>
+
+        <tr ng-repeat="review in reviews">
             <td>{{review.date}}</td>
             <td>{{review.name}}</td>
             <td>{{review.Comments}}</td>
             <td>{{review.rating}}</td>
-        </tr> -->
+        </tr>
 
         <tr>
             <td style="text-align: left">2/22/2016</td>
