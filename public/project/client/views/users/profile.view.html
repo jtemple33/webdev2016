@@ -1,6 +1,8 @@
 <h1>
-    Profile
+    Welcome {{currentUser.firstName}}!
 </h1>
+
+<h2>My Info</h2>
 <form class="form-horizontal">
     <div class="form-group">
         <label for="inputUsername1" class="col-sm-2 control-label">Username</label>
@@ -39,3 +41,34 @@
         </a>
     </div>
 </form>
+
+<h2>My Reviews</h2>
+<div class="table-responsive">
+    <table class="table table-striped">
+<thead>
+<tr>
+    <th>Date</th>
+    <th>Customer</th>
+    <th>Comments</th>
+    <th>Rating</th>
+    <th>&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td colspan="100%" align="center"  ng-show="!reviews.length">No reviews yet!</td>
+</tr>
+<tr ng-repeat="review in reviews">
+    <td>{{review.date}}</td>
+    <td>{{review.name}}</td>
+    <td>{{review.Comments}}</td>
+    <td>{{review.rating}}</td>
+    <td>
+        <a ng-click="deleteReview(review)" class="btn btn-danger">
+            <scan class="glyphicon glyphicon-remove"></scan>
+        </a>
+    </td>
+</tr>
+</tbody>
+</table>
+    </div>

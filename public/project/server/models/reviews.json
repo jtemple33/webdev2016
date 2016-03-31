@@ -1,8 +1,8 @@
 [
-  {"_id": "white_stretch", "date": "3/15/2016", "name": "Alex", "Comments": "This shirt is so comfortable!",
+  {"userId": "123", "_id": "001", "productId": "white_stretch", "date": "3/15/2016", "name": "Alice", "Comments": "This shirt is so comfortable!",
     "rating": "4"},
-  {"_id": "white_stretch", "date": "3/7/2016", "name": "James", "Comments": "This shirt does wonders to wick away sweat!",
+  {"userId": "123", "_id": "002", "productId": "white_stretch", "date": "3/7/2016", "name": "James", "Comments": "This shirt does wonders to wick away sweat!",
     "rating": "4"},
-  {"_id": "white_stretch", "date": "3/1/2016", "name": "Riggs", "Comments": "Say goodbye to sweat patches",
+  {"userId": "123", "_id": "003", "productId": "white_stretch", "date": "3/1/2016", "name": "Riggs", "Comments": "Say goodbye to sweat patches",
     "rating": "5"}
 ]
