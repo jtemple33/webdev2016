@@ -1,9 +1,10 @@
 (function(){
     angular
         .module("238Hem")
-        .controller("StretchWhiteController", StretchWhiteController);
+        .controller("ProductDetailsController", ProductDetailsController);
 
-    function StretchWhiteController($routeParams, $scope, $rootScope, ReviewService) {
+    function ProductDetailsController($routeParams, $scope, $rootScope, ProductDetailsService) {
+    var productId = $routeParams["productId"];
 
     $scope.setForms = setForms;
     $scope.addReview = addReview;
@@ -13,8 +14,10 @@
     $scope.updateForm = updateForm;
     $scope.selectForm = selectForm;
 
+
     (function init() {
-        getReviews();
+        //getReviews();
+        getProductDetails();
     })();
 
     function getReviews() {
@@ -22,6 +25,14 @@
             .allReviewsByProductId(productId)
             .then(function (response) {
                 $scope.reviews = response.data;
+            })
+    }
+
+    function getProductDetails() {
+        ProductDetailsService
+            .getProductDetails(productId)
+            .then(function (response) {
+                $scope.product = response.data;
             })
     }
 
@@ -36,8 +47,6 @@
             $scope.forms = res;
         });
     }
-
-
 
     function addForm(newForm) {
         var form = {"title": newForm.title};

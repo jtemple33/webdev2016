@@ -6,9 +6,9 @@
 </h2>
 
 
-<img src="https://cdn.shopify.com/s/files/1/0309/2321/products/Product-Photos_0012_Apollo-1_large.png?v=1456516991" class="img-responsive col-sm-3" alt="Generic placeholder thumbnail">
-<h3>Performance Stretch <span class="text-muted">$99</span> </h3>
-<h5>White</h5>
+<img ng-src={{product.productImageURL}} class="img-responsive col-sm-3" alt="Generic placeholder thumbnail">
+<h3>{{product.productName}} <span class="text-muted">{{product.productPrice}}</span> </h3>
+<h5>{{product.productColor}}</h5>
 <select>
     <option>1</option>
     <option>2</option>
@@ -23,7 +23,8 @@
 </select>
 <button type="submit" class="btn btn-primary">Add to cart</button>
 <p></p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.</p>
+<p> {{product.productDescription}}
+</p>
 
 
 <h3>Product Reviews</h3>
@@ -59,12 +60,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="review in reviews">
+        <!--<tr ng-repeat="review in reviews">
             <td>{{review.date}}</td>
             <td>{{review.name}}</td>
             <td>{{review.Comments}}</td>
             <td>{{review.rating}}</td>
-        </tr>
+        </tr> -->
 
         <tr>
             <td style="text-align: left">2/22/2016</td>

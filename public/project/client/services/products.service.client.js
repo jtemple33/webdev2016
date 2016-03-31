@@ -1,9 +1,9 @@
 (function () {
     angular
         .module("238Hem")
-        .factory("ShirtService", ShirtService);
+        .factory("ProductsService", ProductsService);
 
-    function ShirtService($http) {
+    function ProductsService($http) {
         var api = {
             getProducts: getProducts
         };

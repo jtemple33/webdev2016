@@ -15,10 +15,9 @@
             .when("/sale", {
                 templateUrl: "views/store/sale.view.html"
             })
-            .when("/performance_stretch_white", {
-                //"/products/:productId/details"
-                templateUrl: "views/products/performance_stretch_white.view.html",
-                controller: "StretchWhiteController"
+            .when("/products/:productId/details", {
+                templateUrl: "views/products/product_details.html",
+                controller: "ProductDetailsController"
             })
             .when("/performance_stretch_blue", {
                 templateUrl: "views/products/performance_stretch_blue.view.html"

@@ -4,10 +4,10 @@
         .module("238Hem")
         .controller("ProductController", ProductController);
 
-    function ProductController($scope, $routeParams, ShirtService) {
+    function ProductController($scope, $routeParams, ProductsService) {
 
         function init() {
-            ShirtService
+            ProductsService
                 .getProducts()
                 .then(function (response) {
                     console.log(response.data);
