@@ -1,6 +1,10 @@
 var users = require('./user.mock.json');
 
-module.exports = function() {
+module.exports = function(db, mongoose) {
+
+    var UserSchema = require('./user.schema.server.js')(mongoose);
+
+    var UserModel = mongoose.model("User", UserSchema);
 
     var service = {createUser: createUser,
                     findAllUser: findAllUser,
