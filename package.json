@@ -24,9 +24,10 @@
   },
   "dependencies": {
     "body-parser": "^1.15.0",
-    "multer": "~1.1.0",
     "express": "^3.4.8",
-    "jslint": "^0.9.6"
+    "jslint": "^0.9.6",
+    "mongoose": "^4.4.11",
+    "multer": "~1.1.0"
   },
   "devDependencies": {
     "jshint": "^2.9.1"

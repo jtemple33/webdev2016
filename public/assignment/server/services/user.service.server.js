@@ -12,7 +12,16 @@ module.exports = function(app, userModel) {
 
     function createUser(req, res) {
         var newUser = req.body;
-        res.json(userModel.createUser(newUser));
+        //res.json(userModel.createUser(newUser));
+        userModel.createUser(newUser)
+            .then(
+                function(newUser){
+                    res.json(newUser);
+                },
+                function(error){
+                    res.status(400).send(error);
+                }
+            );
     }
 
     function updateUser(req, res) {

@@ -8,8 +8,6 @@
         $scope.register = register;
 
         function register(newUser) {
-            newUser._id = (new Date()).getTime();
-
             UserService
                 .createUser(newUser)
                 .then(function (res) {
