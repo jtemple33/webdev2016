@@ -28,7 +28,8 @@ module.exports = function(db) {
     }
 
     function findAllUser() {
-        return users;
+        //return users;
+        return MongooseUserModel.find();
     }
 
     function findUserById(id) {
