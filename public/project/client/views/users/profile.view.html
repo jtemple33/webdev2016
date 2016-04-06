@@ -62,7 +62,13 @@
     <td>{{review.date}}</td>
     <td>{{review.name}}</td>
     <td>{{review.Comments}}</td>
-    <td>{{review.rating}}</td>
+    <td>
+        <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=1, 'glyphicon-star-empty': review.rating<1}"></span>
+        <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=2, 'glyphicon-star-empty': review.rating<2}"></span>
+        <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=3, 'glyphicon-star-empty': review.rating<3}"></span>
+        <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=4, 'glyphicon-star-empty': review.rating<4}"></span>
+        <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=5, 'glyphicon-star-empty': review.rating<5}"></span>
+        </td>
     <td>
         <a ng-click="deleteReview(review)" class="btn btn-danger">
             <scan class="glyphicon glyphicon-remove"></scan>

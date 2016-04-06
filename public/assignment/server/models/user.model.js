@@ -3,9 +3,11 @@ var mongoose = require("mongoose");
 
 module.exports = function(db) {
 
+    // load user schema
     var UserSchema = require('./user.schema.server.js')(mongoose);
 
-    var UserModel = mongoose.model("User", UserSchema);
+    // create user model from schema
+    var MongooseUserModel = mongoose.model("User", UserSchema);
 
     var service = {createUser: createUser,
                     findAllUser: findAllUser,
@@ -21,7 +23,8 @@ module.exports = function(db) {
         //users.push(user);
         //return user;
         delete user.verifiedPassword;
-        return UserModel.create(user);
+        user.emails = [user.email];
+        return MongooseUserModel.create(user);
     }
 
     function findAllUser() {
