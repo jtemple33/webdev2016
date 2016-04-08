@@ -12,6 +12,7 @@
                 .updateUser(user._id, user)
                 .then(function(res) {
                 $rootScope.currentUser = user;
+                alert("Successfully updated profile")
             });
         }
     }

@@ -8,7 +8,7 @@ module.exports = function (mongoose) {
                 type: String,
                 default: 'New Form'
             },
-            fields: [fieldSchema],
+            fields:  [{type:mongoose.Schema.Types.Object, ref:'fieldSchema'}],
             created: {
                 type: Date,
                 default: Date.now

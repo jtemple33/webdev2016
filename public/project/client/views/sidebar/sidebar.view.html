@@ -4,4 +4,5 @@
     <li ng-class="{'active': $location.path() == '/' || $location.path() == '/home'}"><a href="#/sale">Sale</a></li>
     <li ng-class="{'active': $location.path() == '/admin'}" ng-show="currentUser && currentUser.roles.indexOf('admin') >= 0"><a href="#/admin">Admin</a></li>
     <li ng-class="{'active': $location.path() == '/forms'}"ng-show="currentUser"><a href="#/wishlist">Wishlist</a></li>
+    <li ng-class="{'active': $location.path() == '/' || $location.path() == '/faq'}"><a href="#/faq">FAQ</a></li>
 </ul>
