@@ -38,7 +38,7 @@
                 controller: "RegisterController"
             })
             .when("/faq", {
-                templateUrl: "views/store/faq.html",
+                templateUrl: "views/store/faq.html"
             })
             .otherwise({
                 redirectTo: "/our_story"
