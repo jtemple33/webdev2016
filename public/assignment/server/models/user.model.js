@@ -2,6 +2,7 @@ var users = require('./user.mock.json');
 var mongoose = require("mongoose");
 var q = require("q");
 
+
 module.exports = function(db) {
 
     // load user schema

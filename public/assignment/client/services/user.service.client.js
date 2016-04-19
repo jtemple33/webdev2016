@@ -13,6 +13,9 @@
         */
 
         var api = {
+            login: login,
+            logout: logout,
+            register: register,
             findUserByUsername: findUserByUsername,
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
@@ -21,6 +24,18 @@
             updateUser: updateUser
         };
         return api;
+
+        function login(user) {
+            return $http.post("/api/login", user);
+        }
+
+        function logout() {
+            return $http.post("/api/logout");
+        }
+
+        function register(user) {
+            return $http.post("/api/register", user);
+        }
 
         function findUserByUsername(username) {
             return $http.get("/api/assignment/user/username" + username);
