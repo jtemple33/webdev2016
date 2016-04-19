@@ -17,7 +17,7 @@ module.exports = function(app, formModel) {
                 function(doc){
                     res.json(doc);
                 },
-                function(error){
+                   function(error){
                     res.status(400).send(error);
                 }
             );
@@ -29,7 +29,7 @@ module.exports = function(app, formModel) {
         formModel
             .findAllFieldsForForm(formId)
             .then(
-                function(doc){
+                function(doc) {
                     res.json(doc);
                 },
                 function(error){
@@ -55,10 +55,17 @@ module.exports = function(app, formModel) {
     }
 
     function createFieldForForm(req, res) {
-        var field = req.body;
         var formId = req.params.formId;
-        field._id = (new Date).getTime();
+        //var field;
         //res.json(formModel.createFieldForForm(formId, field));
+
+        var field = {
+            'label': req.param('label'),
+            'type': req.param('type'),
+            'placeholder': req.param("placeholder"),
+            'options': req.param("options")
+        };
+
         formModel
             .createFieldForForm(formId, field)
             .then(

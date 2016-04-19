@@ -17,8 +17,7 @@
                 .then(function (response) {
                     console.log(response.data);
                     $scope.fields = response.data;
-                })
-
+                });
         }
 
         init();
@@ -97,9 +96,8 @@
                 .createFieldForForm(formId, field)
                 .then(function (response) {
                     $scope.fields = response.data;
-                })
-
-
+                    init();
+                });
         }
 
         function removeField(index) {
@@ -108,7 +106,9 @@
                 .deleteFieldFromForm(formId, field._id)
                 .then(function (response) {
                     $scope.fields = response.data;
+                    init();
                 });
+
         }
 
 

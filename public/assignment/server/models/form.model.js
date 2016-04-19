@@ -167,18 +167,19 @@ module.exports = function(db) {
     }
 
     function findAllFieldsForForm(formId) {
-        var form = findFormById(formId);
-        return form.fields;
-        formModel.find({"_id": formId}, function(err,doc) {
+        var deferred = q.defer();
+
+        //var form = findFormById(formId);
+        //return form.fields;
+        formModel
+            .find({"_id": formId}, function(err,doc) {
             if(err){
                 deferred.reject(err);
             }else{
-                deferred.resolve(doc);
+                deferred.resolve(doc.fields);
             }
         });
         return deferred.promise;
-
-
     }
 
     function findFieldByFormId(formId, fieldId) {
@@ -203,15 +204,23 @@ module.exports = function(db) {
                 break;
             }
         }
-        return form.fields;
         updateFormById(formId, form);
+        return form.fields;
     }
 
     function createFieldForForm(formId, field) {
-        var form = findFormById(formId);
-        form.fields.push(field);
-        return form.fields;
-        updateFormById(formId, form);
+        var deferred = q.defer();
+
+        formModel
+            .findById(formId)
+            .then(function(doc) {
+                doc.fields.push(fields);
+                return doc.save();
+            });
+        //updateFormById(formId, form);
+        return deferred.promise;
+        //form.fields.push(field);
+        //return form.fields;
     }
 
     function updateFieldByFormId(formId, field) {
@@ -224,7 +233,7 @@ module.exports = function(db) {
                 form.field[i].options = field.options;
             }
         }
-        return form.fields;
         updateFormById(formId, form);
+        return form.fields;
     }
 };
