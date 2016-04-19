@@ -8,11 +8,14 @@
         $scope.register = register;
 
         function register(newUser) {
+            newUser.emails = [newUser.email];
+            newUser.roles = ['student'];
             if(newUser.password != newUser.verifiedPassword) {
                 alert("Your passwords don't match!");
             }
             else {
-            UserService
+                delete newUser.verifiedPassword;
+                UserService
                 .register(newUser)
                 .then(function (res) {
                     var user = res.data;

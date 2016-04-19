@@ -50,10 +50,12 @@
         }
 
         function createUser(user) {
+            console.log(user);
             return $http.post("/api/assignment/user", user);
         }
 
         function deleteUser(userId) {
+            console.log(userId);
             return $http.delete("/api/assignment/user/" + userId);
         }
 

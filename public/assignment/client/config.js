@@ -59,6 +59,10 @@
                     $rootScope.currentUser = user;
                     deferred.resolve();
                 }
+                else {
+                    alert("You must login as an admin to access that page");
+                    $location.url('/login');
+                }
             });
 
             return deferred.promise;

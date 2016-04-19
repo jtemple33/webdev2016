@@ -12,7 +12,7 @@ module.exports = function(db) {
     var MongooseUserModel = mongoose.model("User", UserSchema);
 
     var service = {createUser: createUser,
-                    findAllUser: findAllUser,
+                    findAllUsers: findAllUsers,
                     findUserById: findUserById,
                     updateUser: updateUser,
                     deleteUser: deleteUser,
@@ -28,8 +28,6 @@ module.exports = function(db) {
 
         //users.push(user);
         //return user;
-        delete user.verifiedPassword;
-        user.emails = [user.email];
         MongooseUserModel.create(user, function(err, doc) {
             if (err) {
                 //rejects promise if error
@@ -44,7 +42,7 @@ module.exports = function(db) {
         return deferred.promise;
     }
 
-    function findAllUser() {
+    function findAllUsers() {
         //return users;
         return MongooseUserModel.find();
     }
@@ -105,9 +103,19 @@ module.exports = function(db) {
     }
 
     function deleteUser(userId) {
-        target = findUserIndexById(userId);
-        users.splice(target,1);
-        return users;
+        //target = findUserIndexById(userId);
+        //users.splice(target,1);
+        //return users;
+        var deferred = q.defer();
+
+        MongooseUserModel.remove({_id: userId}, function(err,doc) {
+            if(err){
+                deferred.reject(err);
+            }else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findUserByUsername(username) {

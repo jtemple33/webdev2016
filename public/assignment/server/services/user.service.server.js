@@ -18,7 +18,6 @@ module.exports = function(app, userModel) {
     app.put("/api/assignment/user/:id", updateUser);
     app.delete("/api/assignment/user/:id", deleteUser);
 
-
     function authorized (req, res, next) {
         if (!req.isAuthenticated()) {
             res.send(401);
@@ -79,7 +78,7 @@ module.exports = function(app, userModel) {
 
     function register(req, res) {
         var newUser = req.body;
-        newUser.roles = ['student'];
+        //newUser.roles = ['student'];
 
         userModel
             .findUserByUsername(newUser.username)
@@ -116,6 +115,7 @@ module.exports = function(app, userModel) {
 
     function createUser(req, res) {
         var newUser = req.body;
+        console.log(newUser);
         //res.json(userModel.createUser(newUser));
         userModel
             .createUser(newUser)
@@ -212,8 +212,9 @@ module.exports = function(app, userModel) {
     }
 
     function deleteUser(req, res) {
-        var userId = req.params._id;
+        var userId = req.params.id;
         //res.json(userModel.deleteUser(userId));
+        console.log(userId);
         userModel
             .deleteUser(userId)
             .then(
