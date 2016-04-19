@@ -15,6 +15,8 @@
             FieldService
                 .getFieldsForForm(formId)
                 .then(function (response) {
+                    console.log("I ran");
+                    console.log(response);
                     console.log(response.data);
                     $scope.fields = response.data;
                 });
@@ -93,11 +95,8 @@
             }
 
             FieldService
-                .createFieldForForm(formId, field)
-                .then(function (response) {
-                    $scope.fields = response.data;
-                    init();
-                });
+                .createFieldForForm(formId, field);
+                init();
         }
 
         function removeField(index) {

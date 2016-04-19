@@ -131,6 +131,8 @@ module.exports = function(app, userModel) {
 
     function updateUser(req, res) {
         var user = req.body;
+        user.emails = user.emails.split(",");
+        user.roles = user.roles.split(",");
         //res.json(userModel.updateUser(user._id, user));
         userModel
             .updateUser(user._id, user)
@@ -226,6 +228,13 @@ module.exports = function(app, userModel) {
                     res.status(400).send(err);
                 }
             );
+    }
+
+    function isAdmin(user) {
+        if(user.roles.indexOf("admin") > 0) {
+            return true
+        }
+        return false;
     }
 
 };

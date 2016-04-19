@@ -8,7 +8,7 @@ module.exports = function(app, formModel) {
     app.post("/api/assignment/form/:formId/field", createFieldForForm);
 
     function findFieldByFormId(req, res) {
-        var formId = req.params.formId;
+        var userId = req.params.userId;
         var fieldId = req.params.fieldId;
         //res.json(formModel.findFieldByFormId(formId, fieldId));
         formModel
@@ -68,14 +68,14 @@ module.exports = function(app, formModel) {
 
         formModel
             .createFieldForForm(formId, field)
-            .then(
+            /*.then(
                 function(doc){
                     res.json(doc);
                 },
                 function(error){
                     res.status(400).send(error);
                 }
-            );
+            )*/;
     }
 
     function updateFieldByFormId(req, res) {

@@ -3,7 +3,7 @@
         .module("FormBuilderApp")
         .controller("FormController", FormController);
 
-    function FormController($scope, $rootScope, FormService) {
+    function FormController($http, $scope, $rootScope, FormService, UserService) {
 
         $scope.setForms = setForms;
         $scope.addForm = addForm;
@@ -15,7 +15,7 @@
             setForms();
         })();
 
-        function setForms() {
+        function setForms(){
             FormService
                 .findAllFormsForUser($rootScope.currentUser._id)
                 .then(function(res) {
