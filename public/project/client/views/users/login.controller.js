@@ -9,7 +9,7 @@
 
         function login(user) {
             UserService
-                .findUserByCredentials(user.username, user.password)
+                .login(user)
                 .then(function(res) {
                 if (res.data) {
                     $rootScope.currentUser = res.data;

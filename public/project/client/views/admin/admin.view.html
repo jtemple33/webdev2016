@@ -1,0 +1,29 @@
+<h1>Admin</h1>
+
+<ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Currently Available Products</a></li>
+    <li role="presentation"><a href="#admin/users">Users</a></li>
+</ul>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>ProductId</th>
+        <th>ProductName</th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tr>
+        <td><input ng-model="product.productId" class="form-control" placeholder="productId"/></td>
+        <td><input ng-model="product.productName" class="form-control" placeholder="productName"/></td>
+        <td><button ng-click="add(product)" class="btn btn-primary">Add</button>
+        <td></td>
+    </tr>
+
+    <tr ng-repeat="product in products">
+        <td class="col-lg-5">{{product.productId}}</a></td>
+        <td class="col-lg-5">{{product.productName}}</td>
+        <td class="col-lg-1"><a href="#/admin/editProduct/{{product._id}}"><button  class="btn btn-success">Select</button></a>
+        <td class="col-lg-1"><button ng-click="remove(product)" class="btn btn-danger">Remove</button>
+    </tr>
+</table>

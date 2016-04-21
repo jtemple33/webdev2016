@@ -1,9 +1,11 @@
-var users = require('./user.json');
+var q = require("q");
 
-module.exports = function() {
+module.exports = function(mongoose, userSchema) {
+
+    var users = mongoose.model("project.User", userSchema);
 
     var service = {createUser: createUser,
-        findAllUser: findAllUser,
+        findAllUsers: findAllUsers,
         findUserById: findUserById,
         updateUser: updateUser,
         deleteUser: deleteUser,
@@ -13,24 +15,53 @@ module.exports = function() {
     return service;
 
     function createUser(user) {
-        users.push(user);
-        return user;
+
+        // use q to defer the response
+        var deferred = q.defer();
+        console.log(user);
+
+        users.create(user, function(err, doc) {
+            if (err) {
+                //rejects promise if error
+                deferred.reject(err);
+            } else {
+                //resolve promise
+                deferred.resolve(doc);
+            }
+
+        });
+        // return a promise
+        return deferred.promise;
     }
 
-    function findAllUser() {
-        return users;
+    function findAllUsers() {
+        // use q to defer the response
+        var deferred = q.defer();
+
+        users.find(function(err, doc) {
+            if (err) {
+                //rejects promise if error
+                deferred.reject(err);
+            } else {
+                //resolve promise
+                deferred.resolve(doc);
+            }
+
+        });
+        // return a promise
+        return deferred.promise;
     }
 
     function findUserById(id) {
-        var result;
-        for (var i = 0; i < users.length; i++) {
-            var suspect = users[i];
-            if (user._id == id) {
-                result = suspect;
-                break;
+        var deferred = q.defer();
+        users.findById(id, function( err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                deferred.resolve(doc);
             }
-        }
-        return result;
+        });
+        return deferred.promise;
     }
 
     function findUserIndexById(id) {
@@ -46,35 +77,69 @@ module.exports = function() {
     }
 
     function updateUser(userId, user) {
-        target = findUserIndexById(userId);
-        users[target] = user;
-        return users;
+        var deferred = q.defer();
+        console.log(userId);
+        console.log(user);
+        users.update({_id: userId}, {$set: user}, function(err, doc) {
+            if (err) {
+                deferred.reject(err);
+            } else {
+                users.find({_id: userId}, function(err, doc) {
+                    if (err) {
+                        deferred.reject(err);
+                    } else {
+                        deferred.resolve(doc);
+                        console.log(doc);
+                    }
+                });
+            }
+        });
+        return deferred.promise;
     }
 
     function deleteUser(userId) {
-        target = findUserIndexById(userId);
-        users.splice(target,1);
-        return users;
+        console.log(userId);
+        var deferred = q.defer();
+
+        users.remove({_id: userId}, function(err,doc) {
+            if(err){
+                deferred.reject(err);
+            }else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findUserByUsername(username) {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user.username == username) {
-                return user;
-            }
-        }
-
+        var deferred = q.defer();
+        users.findOne({username: username}, function(err, doc) {
+                    if (err) {
+                        deferred.reject(err);
+                    } else {
+                        deferred.resolve(doc);
+                    }
+                });
+        return deferred.promise;
     }
 
     function findUserByCredentials(username, password) {
-        for (var i = 0; i < users.length; i++) {
-            var user = users[i];
-            if (user.username == username && user.password == password) {
-                return user;
-            }
-        }
+        var deferred = q.defer();
+        users.findOne(
+            //first argument is predicate
+            {
+                username: username,
+                password: password
+            },
+
+            //doc is unique instance matches predicate
+            function (err, doc) {
+                if (err) {
+                    deferred.reject(err);
+                } else {
+                    deferred.resolve(doc);
+                }
+            });
+        return deferred.promise;
     }
-
-
 };

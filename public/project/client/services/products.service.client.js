@@ -5,15 +5,34 @@
 
     function ProductsService($http) {
         var api = {
-            getProducts: getProducts
+            getProduct: getProduct,
+            getProducts: getProducts,
+            deleteProduct: deleteProduct,
+            addProduct: addProduct,
+            updateProduct: updateProduct
         };
 
         return api;
 
+        function getProduct(_id) {
+            return $http.get("/api/project/product/" +_id);
+        }
+
         function getProducts() {
             return $http.get("/api/project/products")
         }
+        function deleteProduct(productId) {
+            return $http.put("/api/project/deleteProduct", productId);
+        }
+        function addProduct(product) {
+            return $http.post("/api/project/addProduct", product);
 
+        }
+        function updateProduct(_id, product) {
+            return $http.put("/api/project/updateProduct/" +_id, product);
+
+
+        }
 
     }
 })();

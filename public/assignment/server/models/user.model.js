@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 var q = require("q");
 
 
-module.exports = function(db) {
+module.exports = function(userSchema) {
 
     // load user schema
     var UserSchema = require('./user.schema.server.js')(mongoose);

@@ -8,25 +8,27 @@
         $scope.register = register;
 
         function register(newUser) {
-
-            if ($scope.user.password != $scope.user.verifiedPassword) {
-
-                alert("Passwords do not match.  Please try again");
-
-                $scope.password = "";
-                $scope.verifiedPassword = "";
+            if(newUser.password != newUser.verifiedPassword) {
+                alert("Your passwords don't match!");
             }
-
             else {
-
-                newUser._id = (new Date()).getTime();
-
+                delete newUser.verifiedPassword;
+                newUser.role = "customer";
                 UserService
-                    .createUser(newUser)
+                    .register(newUser)
                     .then(function (res) {
-                    $rootScope.currentUser = newUser;
-                    $location.url('/profile')
-                });
+                        var user = res.data;
+                        console.log(res);
+                        if(!res.data) {
+                            alert("A user already exists with this username. Please login");
+                            $location.url('/login')
+                        }
+                        else
+                        {
+                            $rootScope.currentUser = user;
+                            $location.url('/profile')
+                        }
+                    });
 
             }
         }

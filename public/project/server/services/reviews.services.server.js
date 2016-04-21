@@ -7,22 +7,60 @@ module.exports = function(app, reviewModel) {
 
     function getReviewsByProductId(req, res) {
         var productId = req.params.productId;
-        res.json(reviewModel.allReviewsByProductId(productId));
+        //res.json(reviewModel.allReviewsByProductId(productId));
+        reviewModel
+            .allReviewsByProductId(productId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function getReviewsByUserId(req, res) {
         var userId = req.params.userId;
-        res.json(reviewModel.allReviewsByUserId(userId));
-        console.log("I ran!");
+        reviewModel
+            .allReviewsByUserId(userId)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function addReview(req, res) {
         var review = req.body;
-        res.json(reviewModel.addReview(review));
+        //res.json(reviewModel.addReview(review));
+        reviewModel
+            .addReview(review)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            );
     }
 
     function deleteReview(req, res) {
         var review = req.body;
-        res.json(reviewModel.deleteReview(review));
+        //res.json(reviewModel.deleteReview(review));
+        reviewModel
+            .deleteReview(review)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            );
     }
 };

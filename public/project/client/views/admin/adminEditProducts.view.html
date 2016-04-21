@@ -1,27 +1,31 @@
-<img class="img-responsive" src="https://wallpaperscraft.com/image/guy_suit_rush_running_town_cars_79875_2560x1024.jpg"
-     style="width:804px;height:321px;">
+<a href="#/admin"><h1>Admin</h1></a>
 
-<h2>
-    {{product.productCategory}}
-</h2>
+<h3>Product Management</h3>
+<hr>
 
+<h5>Product Name</h5>
+<input ng-model="product.productName" class="form-control" placeholder="productId"/>
 
-<img ng-src={{product.productImageURL}} class="img-responsive col-sm-3" alt="Generic placeholder thumbnail">
-<h3>{{product.productName}} <span class="text-muted">{{product.productPrice}}</span> </h3>
-<h5>{{product.productColor}}</h5>
-<select>
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-</select>
-<a ng-click="addToCart(product)" type="submit" class="btn btn-primary">Add to cart</a>
+<h5>Product Id</h5>
+<input ng-model="product.productId" class="form-control" placeholder="productId"/>
+
+<h5>Product Image URL</h5>
+<input ng-model="product.productImageURL" class="form-control" placeholder="productId"/>
+
+<h5>Product Color</h5>
+<input ng-model="product.productColor" class="form-control" placeholder="productId"/>
+
+<h5>Product Price</h5>
+<input ng-model="product.productPrice" class="form-control" placeholder="productId"/>
+
+<h5>Product Description</h5>
+<textarea ng-model="product.productDescription" class="form-control" rows="5" placeholder="productId"></textarea>
+
 <p></p>
-<p> {{product.productDescription}}
-</p>
+<button ng-click="updateProduct(product._id, product)" class="btn btn-primary">Save Changes</button>
 
-
-<h3>Product Reviews</h3>
+<hr>
+<h3>Review Management</h3>
 
 <div class="table-responsive">
     <table class="table table-striped">
@@ -70,7 +74,12 @@
                 <span class="glyphicon" ng-class="{'glyphicon-star': review.rating>=5, 'glyphicon-star-empty': review.rating<5}"></span>
             </td>
             <td>
+                <a ng-click="deleteReview(review)" class="btn btn-danger">
+                    <scan class="glyphicon glyphicon-remove"></scan>
+                </a>
+            </td>
         </tr>
         </tbody>
+
     </table>
 </div>

@@ -8,10 +8,12 @@
         $scope.update = update;
         $scope.deleteReview = deleteReview;
 
-        (function init() {
+        function init() {
             getReviews($rootScope.currentUser);
-            console.log($rootScope.currentUser);
-        })();
+            //console.log($rootScope.currentUser);
+        }
+
+        init();
 
         function update(user) {
             UserService
@@ -27,6 +29,7 @@
                 .getReviewsByUserId(user._id)
                 .then(function (response) {
                     $scope.reviews = response.data;
+                    console.log(response.data);
                 })
         }
 
@@ -34,7 +37,7 @@
             ReviewService
                 .deleteReview(review)
                 .then(function (response) {
-                    $scope.reviews = response.data;
+                    init();
                 })
         }
     }

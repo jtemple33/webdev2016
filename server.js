@@ -37,7 +37,7 @@ if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
 
 var db = mongoose.connect(connectionString);
 
-require("./public/project/server/app.js")(app);
+require("./public/project/server/app.js")(app, db, mongoose);
 
 require("./public/assignment/server/app.js")(app, db, mongoose);
 
