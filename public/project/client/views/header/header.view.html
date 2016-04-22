@@ -8,7 +8,7 @@
     <a class="navbar-brand" href="#our_story"><img style="max-width:100px; margin-top: -7px;" src="/project/client/views/header/logo.png"></a>
 </div>
 <div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
+    <ul class="nav navbar-nav navbar-right" data-toggle="collapse">
         <li ng-class="{'active': $location.path() == '/register'}" ng-show="!currentUser"><a href="#/register">Register</a></li>
         <li ng-class="{'active': $location.path() == '/login'}" ng-show="!currentUser"><a href="#login">Login</a></li>
         <li ng-class="{'active': $location.path() == '/profile'}" ng-show="currentUser"><a href="#profile">{{currentUser.username}}</a></li>
