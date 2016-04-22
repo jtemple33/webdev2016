@@ -13,7 +13,7 @@
             }
             else {
                 delete newUser.verifiedPassword;
-                newUser.role = "admin";
+                newUser.role = "customer";
                 UserService
                     .register(newUser)
                     .then(function (res) {
