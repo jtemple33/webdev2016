@@ -89,6 +89,9 @@ module.exports = function(mongoose, productSchema) {
 
     function updateProduct(productId, product) {
         var deferred = q.defer();
+        mongoose.Types.ObjectId(productId);
+        delete product._id;
+
 
         products.update({_id: productId}, {$set: product}, function(err, doc) {
             if (err) {
