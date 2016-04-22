@@ -78,10 +78,7 @@
                 controller: "RegisterController"
             })
             .when("/faq", {
-                templateUrl: "views/store/FAQ.html",
-                resolve: {
-                    loggedin: checkLoggedin
-                }
+                templateUrl: "views/store/FAQ.html"
             })
             .otherwise({
                 redirectTo: "/our_story"
