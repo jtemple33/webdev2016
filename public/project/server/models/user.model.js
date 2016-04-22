@@ -77,6 +77,7 @@ module.exports = function(mongoose, userSchema) {
     }
 
     function updateUser(userId, user) {
+        mongoose.Types.ObjectId(userId);
         var deferred = q.defer();
         console.log(userId);
         console.log(user);
